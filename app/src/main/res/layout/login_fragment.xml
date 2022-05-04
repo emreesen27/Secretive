@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="50dp"
             android:background="@color/background_color"
             app:boxStrokeColor="@color/input_layout_selector"
             app:layout_constraintEnd_toEndOf="parent"
