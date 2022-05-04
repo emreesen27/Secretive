@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user_table")
-data class UserModel(
+data class SessionModel(
     @PrimaryKey
     @ColumnInfo(name = "pin")
     val pin: String,

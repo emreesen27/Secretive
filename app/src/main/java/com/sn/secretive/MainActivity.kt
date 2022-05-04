@@ -1,34 +1,12 @@
 package com.sn.secretive
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.Settings
-import android.util.Log
-import android.widget.Button
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.biometric.BiometricManager
-import androidx.biometric.BiometricManager.Authenticators.*
-import androidx.biometric.BiometricPrompt
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.sn.secretive.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
-import java.util.concurrent.Executor
-import javax.inject.Inject
 import androidx.navigation.fragment.NavHostFragment
-
-
-import java.lang.System.exit
 
 
 @AndroidEntryPoint
@@ -53,12 +31,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        vm.userLiveData.observe(this) { user ->
+        vm.sessionLiveData.observe(this) { user ->
             setNavigationGraph(if (user == null) R.id.PinFragment else R.id.LoginFragment)
         }
 
-        /*val action = PinFragmentDirections.actionPinToLogin()
-        navController.navigate(action)*/
 
         /*
         biometricManager = BiometricManager.from(this)

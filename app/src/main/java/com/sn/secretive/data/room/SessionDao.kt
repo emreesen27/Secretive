@@ -1,17 +1,17 @@
 package com.sn.secretive.data.room
 
 import androidx.room.*
-import com.sn.secretive.data.model.UserModel
+import com.sn.secretive.data.model.SessionModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface UserDao {
+interface SessionDao {
 
     @Query("SELECT * FROM user_table")
-    fun getUser(): Flow<UserModel>
+    fun getSession(): Flow<SessionModel>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(userModel: UserModel)
+    suspend fun insert(sessionModel: SessionModel)
 
 
 }
