@@ -2,6 +2,7 @@ package com.sn.secretive
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +14,7 @@ import com.sn.secretive.LoginViewModel.Companion.DB_ERR
 import com.sn.secretive.LoginViewModel.Companion.SUCCESS
 import com.sn.secretive.LoginViewModel.Companion.WRONG_PIN
 import com.sn.secretive.databinding.LoginFragmentBinding
-import com.sn.secretive.extensions.click
-import com.sn.secretive.extensions.gone
-import com.sn.secretive.extensions.visible
+import com.sn.secretive.extensions.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,13 +53,15 @@ class LoginFragment : Fragment() {
         binding.btnContinue.click {
             when (vm.checkPIN(binding.etPin.text.toString())) {
                 SUCCESS -> {
-                    startActivity(Intent(requireContext(), HomeActivity::class.java))
+                    navigateHome()
                 }
                 WRONG_PIN -> {
-                    //todo wrong pin
+                    binding.tvErr.visibleWithAnim(requireContext())
+                    binding.tvErr.text = resources.getString(R.string.wrong_pin)
                 }
                 DB_ERR -> {
-                    //todo db error
+                    binding.tvErr.invisibleWithAnim(requireContext())
+                    binding.tvErr.text = resources.getString(R.string.err_pin)
                 }
             }
 
@@ -75,9 +76,11 @@ class LoginFragment : Fragment() {
         biometric = Biometric(requireContext())
         biometricListener = object : BiometricListener {
             override fun onFingerprintAuthenticationSuccess() {
+                navigateHome()
             }
 
             override fun onFingerprintAuthenticationFailure(errorMessage: String, errorCode: Int) {
+
             }
         }
         biometric.subscribe(biometricListener)
@@ -92,6 +95,11 @@ class LoginFragment : Fragment() {
                 description = "",
             )
         )
+    }
+
+    private fun navigateHome() {
+        requireActivity().finish()
+        startActivity(Intent(requireContext(), HomeActivity::class.java))
     }
 
     private fun hasFingerprintEnrolled() {

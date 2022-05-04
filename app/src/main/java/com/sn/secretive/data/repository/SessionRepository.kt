@@ -1,4 +1,4 @@
-package com.sn.secretive.data
+package com.sn.secretive.data.repository
 
 import androidx.annotation.WorkerThread
 import com.sn.secretive.data.model.SessionModel
