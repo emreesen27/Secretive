@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_nav_graph"
+    app:startDestination="@id/LoadingFragment">
+
+    <fragment
+        android:id="@+id/LoadingFragment"
+        android:name="com.sn.secretive.LoadingFragment"
+        tools:layout="@layout/loading_fragment" />
+
+    <fragment
+        android:id="@+id/PinFragment"
+        android:name="com.sn.secretive.PinFragment"
+        tools:layout="@layout/pin_fragment">
+
+        <action
+            android:id="@+id/action_pin_to_login"
+            app:destination="@id/LoginFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"
+            app:popUpTo="@id/PinFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.sn.secretive.LoginFragment"
+        tools:layout="@layout/login_fragment" />
+
+</navigation>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        tools:context=".PinFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_pin_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="@string/create_pin"
+            android:textAlignment="center"
+            android:textColor="@color/primary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_pin_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/pin_info"
+            android:textAlignment="center"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pin_title" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_pin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/background_color"
+            app:boxStrokeColor="@color/input_layout_selector"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pin_info">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background_color"
+                android:drawableStart="@drawable/ic_key"
+                android:drawablePadding="10dp"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+                android:textColor="@color/primary_text_color"
+                android:textCursorDrawable="@drawable/custom_cursor"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="35dp"
+            android:backgroundTint="@color/main_color"
+            android:enabled="false"
+            android:paddingVertical="10dp"
+            android:text="@string/key_continue"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_pin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
