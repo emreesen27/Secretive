@@ -6,3 +6,10 @@ inline fun <reified T : View> T.click(crossinline block: (T) -> Unit) = setOnCli
     block(it as T)
 }
 
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    this.visibility = View.GONE
+}

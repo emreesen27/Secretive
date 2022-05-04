@@ -3,7 +3,6 @@
     <string name="key_continue">Continue</string>
     <string name="pin_info">Your PIN is taken as a precaution. You can also use your device pin and fingerprint to login</string>
     <string name="create_pin">Please create a PIN</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login_info">Login with your fingerprint or PIN</string>
+    <string name="login_finger_print">Login using your fingerprint</string>
 </resources>

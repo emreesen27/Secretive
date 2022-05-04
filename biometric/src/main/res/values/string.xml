@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_hw_unavailable">Sensor not available or out of use</string>
+    <string name="error_unable_to_process">Data could not be processed properly</string>
+    <string name="error_time_out">transaction timed out</string>
+    <string name="error_no_space">There is not enough storage space to complete the transaction</string>
+    <string name="error_canceled">Transaction canceled</string>
+    <string name="error_lockout">The transaction is locked because you tried too many times</string>
+    <string name="error_lockout_permanent">The transaction was canceled because it locked too much</string>
+    <string name="error_uer_canceled">You canceled the operation</string>
+    <string name="error_not_recognized">Fingerprint not recognized</string>
+    <string name="error_no_biometrics">No registered fingerprints</string>
+    <string name="error_unknown">Unknown error</string>
+</resources>

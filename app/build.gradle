@@ -48,12 +48,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    //lifecycle
+    //Lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
-    //biometric
-    implementation 'androidx.biometric:biometric:1.2.0-alpha04'
+    //Biometric module
+    implementation project(":biometric")
 
     //Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
@@ -67,9 +67,6 @@ dependencies {
     //Room
     implementation 'androidx.room:room-ktx:2.4.2'
     kapt "androidx.room:room-compiler:2.4.2"
-
-    //Progress
-    implementation 'com.github.emreesen27:Android-Nested-Progress:v1.0.2'
     
     //Test
     testImplementation 'junit:junit:4.+'
