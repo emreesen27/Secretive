@@ -14,7 +14,7 @@
     <color name="main_color">#FF1E80EC</color>
     <color name="primary_text_color">#FFFFFFFF</color>
     <color name="secondary_text_color">#FFD9D9D9</color>
-    <color name="err_color">#FFEA4C46</color>
+    <color name="err_color">#FFE57373</color>
 
 
 </resources>
