@@ -7,4 +7,6 @@
     <string name="login_finger_print">Login using your fingerprint</string>
     <string name="wrong_pin">Wrong PIN !</string>
     <string name="err_pin">The registered PIN cannot be accessed</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
 </resources>

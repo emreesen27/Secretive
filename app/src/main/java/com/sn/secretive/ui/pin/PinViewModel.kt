@@ -1,4 +1,4 @@
-package com.sn.secretive
+package com.sn.secretive.ui.pin
 
 import androidx.lifecycle.*
 import com.sn.secretive.data.repository.SessionRepository

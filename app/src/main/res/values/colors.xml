@@ -9,11 +9,12 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="background_color">#FF121212</color>
-    <color name="widget_color">#FF212121</color>
+    <color name="background_color">#FFFFFFFF</color>
+    <color name="widget_color">#FFD9D9D9</color>
     <color name="main_color">#FF1E80EC</color>
-    <color name="primary_text_color">#FFFFFFFF</color>
-    <color name="secondary_text_color">#FFD9D9D9</color>
+    <color name="secondary_color">#AA1E80EC</color>
+    <color name="primary_text_color">#FF000000</color>
+    <color name="secondary_text_color">#FF454545</color>
     <color name="err_color">#FFE57373</color>
 
 

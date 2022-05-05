@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base_nav_graph"
-    app:startDestination="@id/LoadingFragment">
+    app:startDestination="@id/loading_fragment">
 
     <fragment
-        android:id="@+id/LoadingFragment"
-        android:name="com.sn.secretive.LoadingFragment"
+        android:id="@+id/loading_fragment"
+        android:name="com.sn.secretive.ui.LoadingFragment"
         tools:layout="@layout/loading_fragment" />
 
     <fragment
-        android:id="@+id/PinFragment"
-        android:name="com.sn.secretive.PinFragment"
+        android:id="@+id/pin_fragment"
+        android:name="com.sn.secretive.ui.pin.PinFragment"
         tools:layout="@layout/pin_fragment">
 
         <action
@@ -22,14 +22,14 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"
-            app:popUpTo="@id/PinFragment"
+            app:popUpTo="@id/pin_fragment"
             app:popUpToInclusive="true" />
 
     </fragment>
 
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.sn.secretive.LoginFragment"
+        android:name="com.sn.secretive.ui.login.LoginFragment"
         tools:layout="@layout/login_fragment" />
 
 </navigation>

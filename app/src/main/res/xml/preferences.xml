@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Settings">
+
+        <ListPreference
+            android:defaultValue="System"
+            android:entries="@array/theme_mode"
+            android:entryValues="@array/theme_mode"
+            android:title="Theme"
+            app:key="secretive.theme.mode" />
+
+        <Preference
+            app:key="secretive.about"
+            app:summary="Get information about version and project."
+            app:title="About" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,4 +1,4 @@
-package com.sn.secretive
+package com.sn.secretive.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

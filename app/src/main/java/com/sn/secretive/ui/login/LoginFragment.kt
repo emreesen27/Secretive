@@ -1,8 +1,7 @@
-package com.sn.secretive
+package com.sn.secretive.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.sn.biometric.Biometric
 import com.sn.biometric.BiometricListener
-import com.sn.secretive.LoginViewModel.Companion.DB_ERR
-import com.sn.secretive.LoginViewModel.Companion.SUCCESS
-import com.sn.secretive.LoginViewModel.Companion.WRONG_PIN
+import com.sn.secretive.ui.login.LoginViewModel.Companion.DB_ERR
+import com.sn.secretive.ui.login.LoginViewModel.Companion.SUCCESS
+import com.sn.secretive.ui.login.LoginViewModel.Companion.WRONG_PIN
+import com.sn.secretive.R
 import com.sn.secretive.databinding.LoginFragmentBinding
 import com.sn.secretive.extensions.*
+import com.sn.secretive.ui.NavActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -99,7 +100,7 @@ class LoginFragment : Fragment() {
 
     private fun navigateHome() {
         requireActivity().finish()
-        startActivity(Intent(requireContext(), HomeActivity::class.java))
+        startActivity(Intent(requireContext(), NavActivity::class.java))
     }
 
     private fun hasFingerprintEnrolled() {

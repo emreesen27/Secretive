@@ -1,4 +1,4 @@
-package com.sn.secretive
+package com.sn.secretive.ui.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

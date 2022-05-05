@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Secretive">
         <activity
-            android:name=".HomeActivity"
-            android:exported="true" />
+            android:name=".ui.NavActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
