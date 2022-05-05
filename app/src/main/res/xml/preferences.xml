@@ -2,19 +2,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="Settings">
+    <PreferenceCategory app:title="@string/settings">
 
         <ListPreference
             android:defaultValue="System"
             android:entries="@array/theme_mode"
             android:entryValues="@array/theme_mode"
-            android:title="Theme"
+            android:title="@string/theme"
             app:key="secretive.theme.mode" />
 
         <Preference
             app:key="secretive.about"
-            app:summary="Get information about version and project."
-            app:title="About" />
+            app:summary="@string/about_desc"
+            app:title="@string/about" />
 
     </PreferenceCategory>
 
