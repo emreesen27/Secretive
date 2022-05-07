@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Secretive</string>
+    <string name="key_continue">Devam</string>
+    <string name="pin_info">PIN önlem için gerekmektedir. Giriş yapmak için cihaz şifresi ve parmak izi kullanabilirsiniz</string>
+    <string name="create_pin">Lütfen PIN oluşturun</string>
+    <string name="login_info">PIN ya da parmak izi kullanarak giriş yapın</string>
+    <string name="login_finger_print">Parmak izinizle giriş yapın</string>
+    <string name="wrong_pin">Yanlış PIN !</string>
+    <string name="err_pin">Kayılı PIN\'e ulaşılamadı</string>
+    <string name="home">Ana Ekran</string>
+    <string name="settings">Ayarlar</string>
+    <string name="about">Hakkında</string>
+    <string name="about_desc">Uygulama detaylarını görüntüleyin</string>
+    <string name="theme">Tema</string>
+    <string name="theme_desc">Uygulama temasını değiştirin</string>
+    <string name="language">Dil</string>
+    <string name="language_desc">Uygulama dilini değiştirin</string>
+</resources>

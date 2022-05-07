@@ -26,10 +26,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         mListenerOptions =
             OnSharedPreferenceChangeListener { _: SharedPreferences?, key: String ->
-                if (key == SettingsUtils.SECRETIVE_THEME_MODE) {
-                    SettingsUtils.changeTheme(themeListPreference?.value ?: SettingsUtils.SYSTEM)
-                }
 
+                when (key) {
+                    SettingsUtils.SECRETIVE_THEME_MODE -> {
+                        SettingsUtils.changeTheme(
+                            themeListPreference?.value ?: SettingsUtils.SYSTEM
+                        )
+                    }
+                }
             }
     }
 

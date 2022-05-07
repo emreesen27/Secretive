@@ -1,6 +1,6 @@
 package com.sn.secretive.ui.settings
 
-import android.app.Activity
+import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 
@@ -13,8 +13,8 @@ object SettingsUtils {
     private const val DARK = "Dark"
     private const val LIGHT = "Light"
 
-    fun resolveThemeMode(activity: Activity?): String {
-        return PreferenceManager.getDefaultSharedPreferences(activity)
+    fun resolveThemeMode(context: Context?): String {
+        return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(SECRETIVE_THEME_MODE, SYSTEM).toString()
     }
 

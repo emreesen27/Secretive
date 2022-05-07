@@ -9,13 +9,15 @@
             android:entries="@array/theme_mode"
             android:entryValues="@array/theme_mode"
             android:title="@string/theme"
-            app:key="secretive.theme.mode" />
-
-        <Preference
-            app:key="secretive.about"
-            app:summary="@string/about_desc"
-            app:title="@string/about" />
+            app:key="secretive.theme.mode"
+            app:summary="@string/theme_desc" />
 
     </PreferenceCategory>
+
+    <Preference
+        app:allowDividerAbove="true"
+        app:key="secretive.about"
+        app:summary="@string/about_desc"
+        app:title="@string/about" />
 
 </PreferenceScreen>

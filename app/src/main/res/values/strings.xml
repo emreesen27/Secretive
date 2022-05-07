@@ -10,6 +10,9 @@
     <string name="home">Home</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
-    <string name="about_desc">Get information about version and project</string>
+    <string name="about_desc">See application details</string>
     <string name="theme">Theme</string>
+    <string name="theme_desc">Change app theme</string>
+    <string name="language">Language</string>
+    <string name="language_desc">Change app language</string>
 </resources>
