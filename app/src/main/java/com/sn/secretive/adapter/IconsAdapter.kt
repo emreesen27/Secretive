@@ -1,10 +1,9 @@
-package com.sn.secretive.ui.password
+package com.sn.secretive.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sn.secretive.data.model.AutoUpdatableAdapter
 import com.sn.secretive.extensions.click
 import kotlin.properties.Delegates
 import androidx.appcompat.content.res.AppCompatResources

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.sn.secretive.adapter.IconsAdapter
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.FragmentAddPasswordBinding
 import com.sn.secretive.extensions.click

@@ -1,4 +1,4 @@
-package com.sn.secretive.data.model
+package com.sn.secretive.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView

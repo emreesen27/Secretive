@@ -93,7 +93,7 @@
             android:enabled="false"
             android:fontFamily="@font/nexa_regular"
             android:padding="15dp"
-            android:text="@string/key_continue"
+            android:text="@string/login"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

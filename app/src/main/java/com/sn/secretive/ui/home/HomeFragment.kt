@@ -15,7 +15,7 @@ import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.gone
 import com.sn.secretive.extensions.visible
 import com.sn.secretive.ui.password.PasswordActivity
-import com.sn.secretive.ui.password.PasswordAdapter
+import com.sn.secretive.adapter.PasswordAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
