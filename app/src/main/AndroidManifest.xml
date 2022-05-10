@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Secretive">
         <activity
+            android:name=".ui.password.PasswordActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".ui.NavActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />

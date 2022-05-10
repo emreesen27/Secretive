@@ -13,7 +13,7 @@ object SettingsUtils {
     private const val DARK = "Dark"
     private const val LIGHT = "Light"
 
-    fun resolveThemeMode(context: Context?): String {
+    fun resolveThemeMode(context: Context): String {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(SECRETIVE_THEME_MODE, SYSTEM).toString()
     }

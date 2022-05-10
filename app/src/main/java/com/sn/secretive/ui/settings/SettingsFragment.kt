@@ -39,14 +39,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onPause() {
         super.onPause()
-        preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(
+        preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(
             mListenerOptions
         )
     }
 
     override fun onResume() {
         super.onResume()
-        preferenceManager.sharedPreferences.registerOnSharedPreferenceChangeListener(
+        preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(
             mListenerOptions
         )
     }

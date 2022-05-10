@@ -7,7 +7,9 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.sn.secretive.R
 import com.sn.secretive.databinding.ActivityNavBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NavActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController

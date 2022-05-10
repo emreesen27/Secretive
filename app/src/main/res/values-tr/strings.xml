@@ -15,5 +15,14 @@
     <string name="theme">Tema</string>
     <string name="theme_desc">Uygulama temasını değiştirin</string>
     <string name="language">Dil</string>
-    <string name="language_desc">Uygulama dilini değiştirin</string>
+    <string name="save">Kaydet</string>
+    <string name="add_new_password">Yeni Şifre Ekle</string>
+    <string name="title">Başlık</string>
+    <string name="password">Şifre</string>
+    <string name="note">Not</string>
+    <string name="choose_icon">Şifreni bir simgle ile eşleyin</string>
+    <string name="return_home_page">Ana ekrana dön</string>
+    <string name="go_to_password_detail">Şifre detayına git</string>
+    <string name="password_successfully_added">Şifre başarıyla eklendi</string>
+    <string name="login">Giriş</string>
 </resources>

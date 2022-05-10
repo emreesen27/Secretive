@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/loading_fragment"
         android:name="com.sn.secretive.ui.LoadingFragment"
-        tools:layout="@layout/loading_fragment" />
+        tools:layout="@layout/fragment_loading" />
 
     <fragment
         android:id="@+id/pin_fragment"
         android:name="com.sn.secretive.ui.pin.PinFragment"
-        tools:layout="@layout/pin_fragment">
+        tools:layout="@layout/fragment_pin">
 
         <action
             android:id="@+id/action_pin_to_login"
@@ -30,6 +30,6 @@
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.sn.secretive.ui.login.LoginFragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/fragment_login" />
 
 </navigation>

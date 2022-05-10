@@ -13,7 +13,7 @@ import com.sn.secretive.ui.login.LoginViewModel.Companion.DB_ERR
 import com.sn.secretive.ui.login.LoginViewModel.Companion.SUCCESS
 import com.sn.secretive.ui.login.LoginViewModel.Companion.WRONG_PIN
 import com.sn.secretive.R
-import com.sn.secretive.databinding.LoginFragmentBinding
+import com.sn.secretive.databinding.FragmentLoginBinding
 import com.sn.secretive.extensions.*
 import com.sn.secretive.ui.NavActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,8 +24,8 @@ class LoginFragment : Fragment() {
     private lateinit var biometric: Biometric
     private lateinit var biometricListener: BiometricListener
     private val vm: LoginViewModel by viewModels()
-    private val binding by lazy {
-        LoginFragmentBinding.inflate(layoutInflater)
+    private val binding: FragmentLoginBinding by lazy {
+        FragmentLoginBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -81,7 +81,7 @@ class LoginFragment : Fragment() {
             }
 
             override fun onFingerprintAuthenticationFailure(errorMessage: String, errorCode: Int) {
-
+            //Todo show err msg
             }
         }
         biometric.subscribe(biometricListener)

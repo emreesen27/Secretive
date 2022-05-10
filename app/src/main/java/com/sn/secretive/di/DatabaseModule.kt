@@ -2,6 +2,7 @@ package com.sn.secretive.di
 
 import android.content.Context
 import androidx.room.Room
+import com.sn.secretive.data.room.PasswordDao
 import com.sn.secretive.data.room.RoomDatabase
 import com.sn.secretive.data.room.SessionDao
 import dagger.Module
@@ -16,8 +17,13 @@ import javax.inject.Singleton
 class DatabaseModule {
 
     @Provides
-    fun provideUserDao(roomDatabase: RoomDatabase): SessionDao {
+    fun provideSessionDao(roomDatabase: RoomDatabase): SessionDao {
         return roomDatabase.SessionDao()
+    }
+
+    @Provides
+    fun providePasswordDao(roomDatabase: RoomDatabase): PasswordDao {
+        return roomDatabase.PasswordDao()
     }
 
     @Provides

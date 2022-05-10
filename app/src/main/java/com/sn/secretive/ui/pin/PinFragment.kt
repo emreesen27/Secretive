@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.sn.secretive.data.model.SessionModel
-import com.sn.secretive.databinding.PinFragmentBinding
+import com.sn.secretive.databinding.FragmentPinBinding
 import com.sn.secretive.extensions.click
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -21,8 +21,8 @@ class PinFragment : Fragment() {
 
     private lateinit var navigator: NavController
     private val vm: PinViewModel by viewModels()
-    private val binding: PinFragmentBinding by lazy {
-        PinFragmentBinding.inflate(layoutInflater)
+    private val binding: FragmentPinBinding by lazy {
+        FragmentPinBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(

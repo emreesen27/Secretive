@@ -93,19 +93,18 @@
             android:enabled="false"
             android:fontFamily="@font/nexa_regular"
             android:padding="15dp"
-            android:paddingVertical="10dp"
             android:text="@string/key_continue"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_err" />
 
-
         <ImageView
             android:id="@+id/iv_finger_print"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
+            android:contentDescription="TODO"
             android:src="@drawable/ic_fingerprint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

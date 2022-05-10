@@ -65,14 +65,16 @@ dependencies {
 
     //Hilt
     implementation "com.google.dagger:hilt-android:2.40.5"
-    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
     kapt "com.google.dagger:hilt-compiler:2.40.5"
 
     //Room
     implementation 'androidx.room:room-ktx:2.4.2'
     kapt "androidx.room:room-compiler:2.4.2"
 
+    //Animation
     implementation 'com.github.gayanvoice:android-animations-kotlin:1.0.1'
+    implementation 'com.airbnb.android:lottie:5.0.3'
 
     //Test
     testImplementation 'junit:junit:4.+'
