@@ -1,9 +1,12 @@
 package com.sn.secretive.data.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "password_table")
 data class PasswordItemModel(
     @PrimaryKey(autoGenerate = true)
@@ -17,4 +20,4 @@ data class PasswordItemModel(
     val note: String?,
     @ColumnInfo(name = "icon_id")
     val iconId: Int
-)
+) : Parcelable

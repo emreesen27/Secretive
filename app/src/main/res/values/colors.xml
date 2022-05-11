@@ -12,6 +12,7 @@
     <color name="background_color">#FFFFFFFF</color>
     <color name="widget_color">#FFD9D9D9</color>
     <color name="main_color">#FF1E80EC</color>
+    <color name="btn_disabled_color">#331E80EC</color>
     <color name="secondary_color">#AA1E80EC</color>
     <color name="primary_text_color">#FF000000</color>
     <color name="secondary_text_color">#FF454545</color>

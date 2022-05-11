@@ -69,22 +69,26 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_continue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="35dp"
-            android:backgroundTint="@color/main_color"
+            android:backgroundTint="@color/main_btn_selector"
             android:enabled="false"
             android:fontFamily="@font/nexa_regular"
             android:padding="15dp"
-            android:paddingVertical="10dp"
             android:text="@string/key_continue"
-            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_pin" />
+            app:layout_constraintTop_toBottomOf="@+id/til_pin"
+            app:textAllCaps="false" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

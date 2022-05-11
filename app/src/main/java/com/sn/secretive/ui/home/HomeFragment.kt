@@ -16,6 +16,7 @@ import com.sn.secretive.extensions.gone
 import com.sn.secretive.extensions.visible
 import com.sn.secretive.ui.password.PasswordActivity
 import com.sn.secretive.adapter.PasswordAdapter
+import com.sn.secretive.ui.password.PasswordFlow
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,7 +44,9 @@ class HomeFragment : Fragment() {
         initRecyclerview()
 
         binding.floatActionButton.click {
-            startActivity(Intent(requireContext(), PasswordActivity::class.java))
+            val intent = Intent(requireContext(), PasswordActivity::class.java)
+            intent.putExtra("flow", PasswordFlow.ADD_PASSWORD.flow)
+            startActivity(intent)
         }
 
         vm.passwordLiveData.observe(viewLifecycleOwner) {
@@ -66,6 +69,12 @@ class HomeFragment : Fragment() {
             )
         )
         binding.rcvPass.adapter = passwordAdapter
+        passwordAdapter.onClick = { passwordItem ->
+            val intent = Intent(requireContext(), PasswordActivity::class.java)
+            intent.putExtra("flow", PasswordFlow.DETAIL_PASSWORD.flow)
+            intent.putExtra("passwordItem", passwordItem)
+            startActivity(intent)
+        }
     }
 
 

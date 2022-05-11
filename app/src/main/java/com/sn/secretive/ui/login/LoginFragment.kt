@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
         initBiometric()
         hasFingerprintEnrolled()
 
-        binding.btnContinue.click {
+        binding.btnLogin.click {
             when (vm.checkPIN(binding.etPin.text.toString())) {
                 SUCCESS -> {
                     navigateHome()
@@ -112,7 +112,7 @@ class LoginFragment : Fragment() {
 
     private fun initObserve() {
         vm.session.observe(viewLifecycleOwner) {
-            binding.btnContinue.isEnabled = true
+            binding.btnLogin.isEnabled = true
         }
     }
 
