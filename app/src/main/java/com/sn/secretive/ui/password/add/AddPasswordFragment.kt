@@ -1,11 +1,13 @@
-package com.sn.secretive.ui.password
+package com.sn.secretive.ui.password.add
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -71,14 +73,29 @@ class AddPasswordFragment() : Fragment() {
         vm.insertLiveData.observe(viewLifecycleOwner) { insert ->
             if (insert) {
                 val action =
-                    AddPasswordFragmentDirections.actionAddToSuccess(binding.etTitle.text.toString())
+                    AddPasswordFragmentDirections.actionAddToSuccess(
+                        binding.etTitle.text.toString()
+                    )
                 findNavController().navigate(action)
+                iconsAdapter.resetIcons()
             } else
                 Toast.makeText(requireContext(), "Todo !", Toast.LENGTH_LONG).show()
         }
     }
 
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    iconsAdapter.resetIcons()
+                    if (isEnabled) {
+                        isEnabled = false
+                        requireActivity().onBackPressed()
+                    }
+                }
+            })
+    }
 }
-
-

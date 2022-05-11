@@ -1,4 +1,4 @@
-package com.sn.secretive.ui.password
+package com.sn.secretive.ui.password.add
 
 
 import androidx.databinding.ObservableBoolean

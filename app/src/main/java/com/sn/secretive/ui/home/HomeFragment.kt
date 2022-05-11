@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
         FragmentHomeBinding.inflate(layoutInflater)
     }
     private val passwordAdapter by lazy {
-        PasswordAdapter(requireContext())
+        PasswordAdapter()
     }
 
     override fun onCreateView(

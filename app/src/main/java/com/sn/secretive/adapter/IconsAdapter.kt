@@ -16,9 +16,18 @@ class IconsAdapter(private val context: Context) :
     RecyclerView.Adapter<IconsAdapter.IconsViewHolder>(),
     AutoUpdatableAdapter {
 
+    private val items = mutableListOf(
+        IconModel(R.drawable.ic_facebook, false),
+        IconModel(R.drawable.ic_instagram, false),
+        IconModel(R.drawable.ic_gmail, false),
+        IconModel(R.drawable.ic_twitter, false),
+        IconModel(R.drawable.ic_password, false),
+        IconModel(R.drawable.ic_password_green, false),
+        IconModel(R.drawable.ic_password_blue, false),
+    )
     var onClick: ((Int) -> Unit)? = null
-    private var notifyItems: List<IconModel> by Delegates.observable(update(null)) { _, old, new ->
-        autoNotify(old, new) { o, n -> o.isSelected == n.isSelected }
+    private var notifyItems: List<IconModel> by Delegates.observable(items) { _, old, new ->
+        autoNotify(old, new) { o, n -> o.isSelected != n.isSelected }
     }
 
 
@@ -28,7 +37,6 @@ class IconsAdapter(private val context: Context) :
         )
 
     override fun onBindViewHolder(holder: IconsViewHolder, position: Int) {
-
 
         holder.binding.ivIcon.click {
             notifyItems = update(position)
@@ -55,17 +63,15 @@ class IconsAdapter(private val context: Context) :
     }
 
     private fun update(position: Int?): MutableList<IconModel> {
-        val items = mutableListOf(
-            IconModel(R.drawable.ic_facebook, false),
-            IconModel(R.drawable.ic_instagram, false),
-            IconModel(R.drawable.ic_gmail, false),
-            IconModel(R.drawable.ic_twitter, false),
-            IconModel(R.drawable.ic_password, false),
-            IconModel(R.drawable.ic_password_green, false),
-            IconModel(R.drawable.ic_password_blue, false),
-        )
         if (position != null) items[position].isSelected = true
         return items
+    }
+
+    fun resetIcons() {
+        items.forEach {
+            it.isSelected = true
+            isSelected(it)
+        }
     }
 
 

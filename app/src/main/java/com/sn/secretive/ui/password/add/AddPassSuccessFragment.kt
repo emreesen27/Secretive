@@ -1,4 +1,4 @@
-package com.sn.secretive.ui.password
+package com.sn.secretive.ui.password.add
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

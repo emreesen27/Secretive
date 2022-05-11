@@ -1,16 +1,14 @@
 package com.sn.secretive.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.ItemPasswordBinding
 import kotlin.properties.Delegates
 
 
-class PasswordAdapter(private val context: Context) :
+class PasswordAdapter :
     RecyclerView.Adapter<PasswordAdapter.PasswordViewHolder>(),
     AutoUpdatableAdapter {
 
@@ -35,7 +33,6 @@ class PasswordAdapter(private val context: Context) :
 
         fun bind(item: PasswordItemModel) {
             binding.item = item
-            AppCompatResources.getDrawable(context, item.iconId)?.alpha = 255
             binding.ivIcon.setImageResource(item.iconId)
         }
     }
