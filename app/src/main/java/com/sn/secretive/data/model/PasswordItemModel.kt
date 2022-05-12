@@ -18,6 +18,6 @@ data class PasswordItemModel(
     val password: String,
     @ColumnInfo(name = "note")
     val note: String?,
-    @ColumnInfo(name = "icon_id")
-    val iconId: Int
+    @ColumnInfo(name = "icon_name")
+    val iconName: String
 ) : Parcelable

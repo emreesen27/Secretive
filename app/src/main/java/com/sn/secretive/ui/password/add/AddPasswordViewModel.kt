@@ -20,10 +20,10 @@ class AddPasswordViewModel @Inject constructor(private val passwordRepository: P
     val insertLiveData: LiveData<Boolean> get() = _insertLiveData
 
     val btnSaveEnabled = ObservableBoolean(false)
-    var iconID: Int? = null
+    var iconName: String? = null
 
     fun onInfoChange(password: String, title: String) {
-        btnSaveEnabled.set(title.isNotEmpty() && password.isNotEmpty() && iconID != null)
+        btnSaveEnabled.set(title.isNotEmpty() && password.isNotEmpty() && iconName != null)
     }
 
     fun insert(passwordItemModel: PasswordItemModel) = viewModelScope.launch {

@@ -51,8 +51,8 @@ class AddPasswordFragment() : Fragment() {
             vm.onInfoChange(binding.etTitle.text.toString(), password.toString())
         }
 
-        iconsAdapter.onClick = { id ->
-            vm.iconID = id
+        iconsAdapter.onClick = { iconName ->
+            vm.iconName = iconName
             vm.onInfoChange(binding.etTitle.text.toString(), binding.etPassword.text.toString())
         }
 
@@ -62,7 +62,7 @@ class AddPasswordFragment() : Fragment() {
                 binding.etTitle.text.toString(),
                 binding.etPassword.text.toString(),
                 binding.etNote.text.toString(),
-                vm.iconID!!
+                vm.iconName!!
             )
             vm.insert(password)
         }

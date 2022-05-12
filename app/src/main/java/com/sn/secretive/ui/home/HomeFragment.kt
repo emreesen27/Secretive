@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
         FragmentHomeBinding.inflate(layoutInflater)
     }
     private val passwordAdapter by lazy {
-        PasswordAdapter()
+        PasswordAdapter(requireContext())
     }
 
     override fun onCreateView(
@@ -49,14 +49,17 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        vm.passwordLiveData.observe(viewLifecycleOwner) {
-            if (it.isEmpty())
+        vm.passwordLiveData.observe(viewLifecycleOwner) { passwords ->
+            if (passwords.isEmpty())
                 binding.tvMsg.visible()
             else {
-                passwordAdapter.items = it
+                passwordAdapter.items = passwords
                 binding.tvMsg.gone()
             }
+        }
 
+        vm.deletePassLiveData.observe(viewLifecycleOwner) { position ->
+            passwordAdapter.notifyItemRemoved(position)
         }
 
     }
@@ -74,6 +77,10 @@ class HomeFragment : Fragment() {
             intent.putExtra("flow", PasswordFlow.DETAIL_PASSWORD.flow)
             intent.putExtra("passwordItem", passwordItem)
             startActivity(intent)
+        }
+
+        passwordAdapter.onLongClick = { passwordItem, position ->
+            vm.deletePassword(passwordItem, position)
         }
     }
 

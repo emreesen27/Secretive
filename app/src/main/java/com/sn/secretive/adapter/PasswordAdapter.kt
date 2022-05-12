@@ -1,20 +1,23 @@
 package com.sn.secretive.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.ItemPasswordBinding
 import com.sn.secretive.extensions.click
+import com.sn.secretive.extensions.getIcon
 import kotlin.properties.Delegates
 
 
-class PasswordAdapter :
+class PasswordAdapter(private val context: Context) :
     RecyclerView.Adapter<PasswordAdapter.PasswordViewHolder>(),
     AutoUpdatableAdapter {
 
     var onClick: ((PasswordItemModel) -> Unit)? = null
-    var items: List<PasswordItemModel> by Delegates.observable(emptyList()) { prop, old, new ->
+    var onLongClick: ((PasswordItemModel, Int) -> Unit)? = null
+    var items: List<PasswordItemModel> by Delegates.observable(emptyList()) { _, old, new ->
         autoNotify(old, new) { o, n -> o.id == n.id }
     }
 
@@ -29,6 +32,11 @@ class PasswordAdapter :
         holder.binding.passItem.click {
             onClick?.invoke(items[position])
         }
+
+        holder.binding.passItem.setOnLongClickListener {
+            onLongClick?.invoke(items[position], position)
+            true
+        }
     }
 
     override fun getItemCount(): Int = items.size
@@ -39,9 +47,8 @@ class PasswordAdapter :
 
         fun bind(item: PasswordItemModel) {
             binding.item = item
-            binding.ivIcon.setImageResource(item.iconId)
+            binding.ivIcon.setImageResource(context.getIcon(item.iconName))
         }
     }
-
 
 }
