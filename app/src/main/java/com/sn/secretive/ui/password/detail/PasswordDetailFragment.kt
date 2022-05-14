@@ -1,39 +1,33 @@
 package com.sn.secretive.ui.password.detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sn.secretive.R
+import androidx.fragment.app.viewModels
 import com.sn.secretive.data.model.PasswordItemModel
+import com.sn.secretive.databinding.FragmentPasswordDetailBinding
 
 class PasswordDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PasswordDetailFragment()
+    private val vm: PasswordDetailViewModel by viewModels()
+    private val binding: FragmentPasswordDetailBinding by lazy {
+        FragmentPasswordDetailBinding.inflate(layoutInflater)
     }
-
-    private lateinit var viewModel: PasswordDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_password_detail, container, false)
+    ): View {
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val project = arguments?.get("passwordItem") as PasswordItemModel
-        //Todo bind data
+        binding.project = project
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PasswordDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
