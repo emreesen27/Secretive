@@ -24,6 +24,17 @@
             android:id="@+id/action_settings_to_home"
             app:destination="@id/home_fragment" />
 
+
+        <action
+            android:id="@+id/action_settings_to_about"
+            app:destination="@id/about_fragment" />
+
     </fragment>
+
+
+    <fragment
+        android:id="@+id/about_fragment"
+        android:name="com.sn.secretive.ui.settings.AboutFragment"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>

@@ -5,6 +5,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
+import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import com.sn.secretive.R
 
@@ -18,6 +19,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         val aboutButton: Preference? = findPreference(SettingsUtils.SECRETIVE_ABOUT)
         aboutButton?.setOnPreferenceClickListener {
+            findNavController().navigate(SettingsFragmentDirections.actionSettingsToAbout())
             true
         }
 
@@ -26,7 +28,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         mListenerOptions =
             OnSharedPreferenceChangeListener { _: SharedPreferences?, key: String ->
-
                 when (key) {
                     SettingsUtils.SECRETIVE_THEME_MODE -> {
                         SettingsUtils.changeTheme(

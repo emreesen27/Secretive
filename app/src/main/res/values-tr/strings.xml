@@ -26,4 +26,9 @@
     <string name="password_successfully_added">Şifre başarıyla eklendi</string>
     <string name="login">Giriş</string>
     <string name="delete">Sil</string>
+    <string name="update">Güncelle</string>
+    <string name="show_detail">Detayları göster</string>
+    <string name="choose_action">İşlem seçin</string>
+    <string name="open_source_license">Açık Kaynak &amp; Lisans</string>
+    <string name="open_source_desc">Bu uygulama açık kaynak olarak geliştirilmiştir</string>
 </resources>
