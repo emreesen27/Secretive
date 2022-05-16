@@ -70,16 +70,13 @@ class AddPasswordFragment() : Fragment() {
     }
 
     private fun initObserve() {
-        vm.insertLiveData.observe(viewLifecycleOwner) { insert ->
-            if (insert) {
-                val action =
-                    AddPasswordFragmentDirections.actionAddToSuccess(
-                        binding.etTitle.text.toString()
-                    )
-                findNavController().navigate(action)
-                iconsAdapter.resetIcons()
-            } else
-                Toast.makeText(requireContext(), "Todo !", Toast.LENGTH_LONG).show()
+        vm.insertLiveData.observe(viewLifecycleOwner) { item ->
+            val action =
+                AddPasswordFragmentDirections.actionAddToSuccess(
+                    item
+                )
+            findNavController().navigate(action)
+            iconsAdapter.resetIcons()
         }
     }
 

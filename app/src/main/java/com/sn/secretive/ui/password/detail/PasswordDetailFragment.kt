@@ -13,13 +13,14 @@ import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.BottomSheetUpdateBinding
 import com.sn.secretive.databinding.FragmentPasswordDetailBinding
 import com.sn.secretive.extensions.click
+import com.sn.secretive.extensions.getIcon
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PasswordDetailFragment : Fragment() {
 
     private lateinit var bottomSheetDialog: BottomSheetDialog
-    private lateinit var project: PasswordItemModel
+    private lateinit var item: PasswordItemModel
     private val vm: PasswordDetailViewModel by viewModels()
     private val binding: FragmentPasswordDetailBinding by lazy {
         FragmentPasswordDetailBinding.inflate(layoutInflater)
@@ -34,9 +35,9 @@ class PasswordDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        project = arguments?.get("passwordItem") as PasswordItemModel
-        binding.project = project
-
+        item = arguments?.get("passwordItem") as PasswordItemModel
+        binding.item = item
+        binding.ivIcon.setImageResource(requireContext().getIcon(item.iconName))
 
         binding.dvTitle.onClick =
             { showBottomSheet(PasswordDetailViewModel.TITLE, binding.dvTitle.value) }
@@ -83,12 +84,11 @@ class PasswordDetailFragment : Fragment() {
                     note = value
                 }
             }
-            val item = PasswordItemModel(project.id, title, pass, note, project.iconName)
+            val item = PasswordItemModel(item.id, title, pass, note, item.iconName)
             vm.update(item)
             bottomSheetDialog.dismiss()
         }
         bottomSheetDialog.show()
     }
-
 
 }

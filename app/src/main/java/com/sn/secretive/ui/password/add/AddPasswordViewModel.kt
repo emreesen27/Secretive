@@ -16,8 +16,8 @@ import javax.inject.Inject
 class AddPasswordViewModel @Inject constructor(private val passwordRepository: PasswordRepository) :
     ViewModel() {
 
-    private val _insertLiveData: MutableLiveData<Boolean> = MutableLiveData()
-    val insertLiveData: LiveData<Boolean> get() = _insertLiveData
+    private val _insertLiveData: MutableLiveData<PasswordItemModel> = MutableLiveData()
+    val insertLiveData: LiveData<PasswordItemModel> get() = _insertLiveData
 
     val btnSaveEnabled = ObservableBoolean(false)
     var iconName: String? = null
@@ -29,7 +29,7 @@ class AddPasswordViewModel @Inject constructor(private val passwordRepository: P
     fun insert(passwordItemModel: PasswordItemModel) = viewModelScope.launch {
         passwordRepository.insert(passwordItemModel)
     }.invokeOnCompletion { err ->
-        _insertLiveData.value = err == null
+        if (err == null) _insertLiveData.value = passwordItemModel
     }
 
 }
