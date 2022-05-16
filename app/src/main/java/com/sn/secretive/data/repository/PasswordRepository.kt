@@ -20,4 +20,9 @@ class PasswordRepository @Inject constructor(private val passwordDao: PasswordDa
         return passwordDao.delete(passwordItemModel)
     }
 
+    @WorkerThread
+    suspend fun update(passwordItemModel: PasswordItemModel) {
+        return passwordDao.update(passwordItemModel)
+    }
+
 }

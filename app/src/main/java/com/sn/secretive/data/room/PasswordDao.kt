@@ -16,4 +16,6 @@ interface PasswordDao {
     @Delete()
     suspend fun delete(passwordItemModel: PasswordItemModel)
 
+    @Update()
+    suspend fun update(passwordItemModel: PasswordItemModel)
 }

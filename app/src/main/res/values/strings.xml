@@ -25,4 +25,7 @@
     <string name="password_successfully_added">Password successfully added</string>
     <string name="login">Login</string>
     <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="show_detail">Show detail</string>
+    <string name="choose_action">Choose action</string>
 </resources>
