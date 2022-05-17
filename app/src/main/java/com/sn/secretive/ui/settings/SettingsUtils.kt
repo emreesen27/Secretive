@@ -6,6 +6,8 @@ import androidx.preference.PreferenceManager
 
 object SettingsUtils {
 
+    const val SECRETIVE_REPOSITORY_LINK = "https://github.com/emreesen27/Secretive"
+
     const val SECRETIVE_THEME_MODE = "secretive.theme.mode"
     const val SECRETIVE_ABOUT = "secretive.about"
 

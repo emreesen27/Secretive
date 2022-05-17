@@ -28,9 +28,8 @@ class AboutFragment : Fragment() {
         binding.tvLicenseUrl.click {
             val browserIntent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://github.com/emreesen27/Smooth-PDF-Viewer")
+                Uri.parse(SettingsUtils.SECRETIVE_REPOSITORY_LINK)
             )
-            //todo change url
             startActivity(browserIntent)
         }
     }
