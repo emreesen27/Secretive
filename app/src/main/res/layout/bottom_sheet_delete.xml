@@ -48,7 +48,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/main_color"
             android:fontFamily="@font/nexa_regular"
             android:padding="15dp"
@@ -58,12 +57,32 @@
             android:textSize="16sp"
             app:cornerRadius="10dp"
             app:icon="@drawable/ic_detail"
-            app:layout_constraintBottom_toTopOf="@id/btn_delete"
+            app:layout_constraintBottom_toTopOf="@id/btn_copy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_header"
             app:textAllCaps="false" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_copy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/secondary_color"
+            android:fontFamily="@font/nexa_regular"
+            android:padding="15dp"
+            android:text="@string/copy"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_copy"
+            app:layout_constraintBottom_toTopOf="@id/btn_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_detail"
+            app:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete"
@@ -81,7 +100,7 @@
             app:icon="@drawable/ic_delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_detail"
+            app:layout_constraintTop_toBottomOf="@id/btn_copy"
             app:textAllCaps="false" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

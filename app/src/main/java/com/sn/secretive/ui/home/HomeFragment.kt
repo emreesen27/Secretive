@@ -18,9 +18,7 @@ import com.sn.secretive.ui.password.PasswordActivity
 import com.sn.secretive.adapter.PasswordAdapter
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.BottomSheetDeleteBinding
-import com.sn.secretive.extensions.click
-import com.sn.secretive.extensions.gone
-import com.sn.secretive.extensions.visible
+import com.sn.secretive.extensions.*
 import com.sn.secretive.ui.password.PasswordFlow
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -113,6 +111,11 @@ class HomeFragment : Fragment() {
         bindingSheet.btnDetail.click {
             navigatePassDetail(item)
             bottomSheetDialog.dismiss()
+        }
+        bindingSheet.btnCopy.click {
+            bottomSheetDialog.dismiss()
+            requireContext().copyToClipboard(item.password)
+            requireContext().showToast(getString(R.string.password_copied))
         }
         bottomSheetDialog.show()
 
