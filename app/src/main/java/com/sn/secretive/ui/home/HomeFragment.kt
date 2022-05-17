@@ -47,12 +47,11 @@ class HomeFragment : Fragment() {
         navigator = findNavController()
         initRecyclerview()
 
-        binding.floatActionButton.click {
-            navigateAddPass()
-        }
+        binding.floatActionButton.click { navigateAddPass() }
+        binding.tvAddPassword.click { navigateAddPass() }
 
         vm.passwordLiveData.observe(viewLifecycleOwner) { passwords ->
-            if (passwords.isEmpty()) binding.tvMsg.visible() else binding.tvMsg.gone()
+            if (passwords.isEmpty()) binding.noPassGroup.visible() else binding.noPassGroup.gone()
             passwordAdapter.items = passwords
         }
 

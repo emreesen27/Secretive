@@ -31,4 +31,7 @@
     <string name="choose_action">İşlem seçin</string>
     <string name="open_source_license">Açık Kaynak &amp; Lisans</string>
     <string name="open_source_desc">Bu uygulama açık kaynak olarak geliştirilmiştir</string>
+    <string name="password_copied">Şifre kopyalandı</string>
+    <string name="no_password_found">Henüz bir şifre eklenmemiş</string>
+    <string name="click_to_add">Eklemek için tıklayın</string>
 </resources>

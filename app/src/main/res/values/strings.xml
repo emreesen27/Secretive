@@ -30,7 +30,9 @@
     <string name="choose_action">Choose action</string>
     <string name="open_source_license">Open Source &amp; License</string>
     <string name="open_source_desc">This application is developed as open source</string>
+    <string name="password_copied">Password copied</string>
+    <string name="no_password_found">No password found</string>
+    <string name="click_to_add">Click to add</string>
 
     <string name="version" translatable="false">1.0.0</string>
-    <string name="password_copied">password copied</string>
 </resources>
