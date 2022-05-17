@@ -2,12 +2,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/settings">
+    <PreferenceCategory
+        android:layout="@layout/title_preference"
+        app:title="@string/settings">
 
         <ListPreference
             android:defaultValue="System"
             android:entries="@array/theme_mode"
             android:entryValues="@array/theme_mode"
+            android:layout="@layout/item_preference"
             android:title="@string/theme"
             app:key="secretive.theme.mode"
             app:summary="@string/theme_desc" />
@@ -15,6 +18,7 @@
     </PreferenceCategory>
 
     <Preference
+        android:layout="@layout/item_preference"
         app:allowDividerAbove="true"
         app:key="secretive.about"
         app:summary="@string/about_desc"
