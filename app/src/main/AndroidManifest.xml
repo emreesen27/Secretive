@@ -8,9 +8,9 @@
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_app_icon"
+        android:icon="@mipmap/ic_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_app_icon"
+        android:roundIcon="@mipmap/ic_app_icon_rounded"
         android:supportsRtl="true"
         android:theme="@style/Theme.Secretive"
         tools:ignore="AllowBackup">
