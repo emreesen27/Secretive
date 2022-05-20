@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -14,6 +16,7 @@ import com.sn.secretive.databinding.BottomSheetUpdateBinding
 import com.sn.secretive.databinding.FragmentPasswordDetailBinding
 import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.getIcon
+import com.sn.secretive.extensions.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -73,6 +76,7 @@ class PasswordDetailFragment : Fragment() {
 
         bindingSheet.btnUpdate.click {
             val value = bindingSheet.etUpdate.text.toString()
+            bottomSheetDialog.dismiss()
             when (tag) {
                 PasswordDetailViewModel.TITLE -> {
                     title = value
@@ -84,9 +88,14 @@ class PasswordDetailFragment : Fragment() {
                     note = value
                 }
             }
+
+            if (title.isEmpty() || pass.isEmpty()) {
+                context?.showToast("Değer boş bırakılamaz !", Toast.LENGTH_SHORT)
+                return@click
+            }
+
             val item = PasswordItemModel(item.id, title, pass, note, item.iconName)
             vm.update(item)
-            bottomSheetDialog.dismiss()
         }
         bottomSheetDialog.show()
     }
