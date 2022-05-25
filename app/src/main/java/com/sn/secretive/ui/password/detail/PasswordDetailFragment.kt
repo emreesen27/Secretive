@@ -90,7 +90,7 @@ class PasswordDetailFragment : Fragment() {
             }
 
             if (title.isEmpty() || pass.isEmpty()) {
-                context?.showToast("Değer boş bırakılamaz !", Toast.LENGTH_SHORT)
+                context?.showToast(getString(R.string.empty_err_messages), Toast.LENGTH_SHORT)
                 return@click
             }
 
