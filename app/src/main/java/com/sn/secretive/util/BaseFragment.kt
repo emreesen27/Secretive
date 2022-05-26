@@ -1,6 +1,5 @@
 package com.sn.secretive.util
 
-import android.graphics.Path
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
