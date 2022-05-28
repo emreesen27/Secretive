@@ -9,6 +9,7 @@ import com.sn.secretive.adapter.IconsAdapter
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.FragmentAddPasswordBinding
 import com.sn.secretive.extensions.click
+import com.sn.secretive.extensions.observe
 import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,7 +60,7 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
     }
 
     private fun initObserve() {
-        vModel().insertLiveData.observe(viewLifecycleOwner) { item ->
+        observe(vModel().insertLiveData) { item ->
             val action = AddPasswordFragmentDirections.actionAddToSuccess(item)
             startAction(action)
             iconsAdapter.resetIcons()

@@ -107,7 +107,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     }
 
     private fun initObserve() {
-        vModel().session.observe(viewLifecycleOwner) {
+        observe(vModel().session) {
             getBinding().btnLogin.isEnabled = true
         }
     }

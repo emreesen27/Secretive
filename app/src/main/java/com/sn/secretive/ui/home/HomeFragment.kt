@@ -42,12 +42,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
 
     private fun initObserve() {
-        vModel().passwordLiveData.observe(viewLifecycleOwner) { passwords ->
+        observe(vModel().passwordLiveData) { passwords ->
             if (passwords.isEmpty()) getBinding().noPassGroup.visible() else getBinding().noPassGroup.gone()
             passwordAdapter.items = passwords
         }
 
-        vModel().deletePassLiveData.observe(viewLifecycleOwner) { position ->
+        observe(vModel().deletePassLiveData) { position ->
             passwordAdapter.notifyItemRemoved(position)
         }
     }

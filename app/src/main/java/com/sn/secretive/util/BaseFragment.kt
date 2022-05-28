@@ -30,7 +30,6 @@ abstract class BaseFragment<V : ViewModel, B : ViewDataBinding> : Fragment() {
         findNavController().navigate(directions)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel().value
