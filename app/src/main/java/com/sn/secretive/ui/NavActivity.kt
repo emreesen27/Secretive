@@ -7,6 +7,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.sn.secretive.R
 import com.sn.secretive.databinding.ActivityNavBinding
+import com.sn.secretive.extensions.gone
+import com.sn.secretive.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +23,12 @@ class NavActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         navController = findNavController(R.id.home_nav_host)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.about_fragment -> binding.bottomBar.gone()
+                else -> binding.bottomBar.visible()
+            }
+        }
         initBottomBar()
     }
 

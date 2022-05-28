@@ -15,6 +15,6 @@ fun Context.copyToClipboard(text: CharSequence) {
     clipboard.setPrimaryClip(clip)
 }
 
-fun Context.showToast(msg: String) {
-    Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+fun Context.showToast(msg: String, drt: Int ) {
+    Toast.makeText(this, msg, drt).show()
 }

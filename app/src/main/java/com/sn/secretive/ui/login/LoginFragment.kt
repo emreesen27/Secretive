@@ -16,24 +16,47 @@ import com.sn.secretive.R
 import com.sn.secretive.databinding.FragmentLoginBinding
 import com.sn.secretive.extensions.*
 import com.sn.secretive.ui.NavActivity
+import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     private lateinit var biometric: Biometric
     private lateinit var biometricListener: BiometricListener
-    private val vm: LoginViewModel by viewModels()
-    private val binding: FragmentLoginBinding by lazy {
-        FragmentLoginBinding.inflate(layoutInflater)
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_login
+
+    override fun getViewModel(): Lazy<LoginViewModel> = viewModels()
+
+    override fun bindViewModel(model: LoginViewModel, dataBinding: FragmentLoginBinding) =
+        with(dataBinding) {
+            initObserve()
+            initBiometric()
+            hasFingerprintEnrolled()
+
+            ivFingerPrint.click {
+                showBiometricDialog()
+            }
+
+            btnLogin.click {
+                when (model.checkPIN(etPin.text.toString())) {
+                    SUCCESS -> {
+                        navigateHome()
+                    }
+                    WRONG_PIN -> {
+                        tvErr.visibleWithAnim(requireContext())
+                        tvErr.text = resources.getString(R.string.wrong_pin)
+                    }
+                    DB_ERR -> {
+                        tvErr.invisibleWithAnim(requireContext())
+                        tvErr.text = resources.getString(R.string.err_pin)
+                    }
+                }
+            }
+
+
+        }
 
     override fun onResume() {
         super.onResume()
@@ -45,33 +68,6 @@ class LoginFragment : Fragment() {
         biometric.unSubscribe()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initObserve()
-        initBiometric()
-        hasFingerprintEnrolled()
-
-        binding.btnLogin.click {
-            when (vm.checkPIN(binding.etPin.text.toString())) {
-                SUCCESS -> {
-                    navigateHome()
-                }
-                WRONG_PIN -> {
-                    binding.tvErr.visibleWithAnim(requireContext())
-                    binding.tvErr.text = resources.getString(R.string.wrong_pin)
-                }
-                DB_ERR -> {
-                    binding.tvErr.invisibleWithAnim(requireContext())
-                    binding.tvErr.text = resources.getString(R.string.err_pin)
-                }
-            }
-
-        }
-
-        binding.ivFingerPrint.click {
-            showBiometricDialog()
-        }
-    }
 
     private fun initBiometric() {
         biometric = Biometric(requireContext())
@@ -81,7 +77,7 @@ class LoginFragment : Fragment() {
             }
 
             override fun onFingerprintAuthenticationFailure(errorMessage: String, errorCode: Int) {
-            //Todo show err msg
+                //Todo show err msg
             }
         }
         biometric.subscribe(biometricListener)
@@ -105,14 +101,14 @@ class LoginFragment : Fragment() {
 
     private fun hasFingerprintEnrolled() {
         if (biometric.hasFingerprintEnrolled())
-            binding.ivFingerPrint.visible()
+            getBinding().ivFingerPrint.visible()
         else
-            binding.ivFingerPrint.gone()
+            getBinding().ivFingerPrint.gone()
     }
 
     private fun initObserve() {
-        vm.session.observe(viewLifecycleOwner) {
-            binding.btnLogin.isEnabled = true
+        observe(vModel().session) {
+            getBinding().btnLogin.isEnabled = true
         }
     }
 

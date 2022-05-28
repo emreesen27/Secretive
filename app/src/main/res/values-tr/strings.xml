@@ -34,4 +34,5 @@
     <string name="password_copied">Şifre kopyalandı</string>
     <string name="no_password_found">Henüz bir şifre eklenmemiş</string>
     <string name="click_to_add">Eklemek için tıklayın</string>
+    <string name="empty_err_messages">Değer boş olamaz</string>
 </resources>

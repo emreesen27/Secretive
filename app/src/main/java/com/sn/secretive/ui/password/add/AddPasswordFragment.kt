@@ -1,84 +1,71 @@
 package com.sn.secretive.ui.password.add
 
 import android.content.Context
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import com.sn.secretive.R
 import com.sn.secretive.adapter.IconsAdapter
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.FragmentAddPasswordBinding
 import com.sn.secretive.extensions.click
+import com.sn.secretive.extensions.observe
+import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class AddPasswordFragment() : Fragment() {
-
-    private val vm: AddPasswordViewModel by viewModels()
-    private val binding: FragmentAddPasswordBinding by lazy {
-        FragmentAddPasswordBinding.inflate(layoutInflater)
-    }
+class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPasswordBinding>() {
 
     private val iconsAdapter by lazy {
         IconsAdapter(requireContext())
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_add_password
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.rcvIcons.adapter = iconsAdapter
-        binding.vm = vm
+    override fun getViewModel(): Lazy<AddPasswordViewModel> = viewModels()
+
+    override fun bindViewModel(
+        model: AddPasswordViewModel,
+        dataBinding: FragmentAddPasswordBinding
+    ) = with(dataBinding) {
+        vm = model
+        rcvIcons.adapter = iconsAdapter
         initObserve()
 
-        binding.etTitle.doOnTextChanged { title, _, _, _ ->
-            vm.onInfoChange(title.toString(), binding.etPassword.text.toString())
+        etTitle.doOnTextChanged { title, _, _, _ ->
+            model.onInfoChange(title.toString(), etPassword.text.toString())
         }
 
-        binding.etPassword.doOnTextChanged { password, _, _, _ ->
-            vm.onInfoChange(binding.etTitle.text.toString(), password.toString())
+        etPassword.doOnTextChanged { password, _, _, _ ->
+            model.onInfoChange(etTitle.text.toString(), password.toString())
         }
 
         iconsAdapter.onClick = { iconName ->
-            vm.iconName = iconName
-            vm.onInfoChange(binding.etTitle.text.toString(), binding.etPassword.text.toString())
+            model.iconName = iconName
+            model.onInfoChange(etTitle.text.toString(), etPassword.text.toString())
         }
 
-        binding.btnSave.click {
+        btnSave.click {
             val password = PasswordItemModel(
                 null,
-                binding.etTitle.text.toString(),
-                binding.etPassword.text.toString(),
-                binding.etNote.text.toString(),
-                vm.iconName!!
+                etTitle.text.toString(),
+                etPassword.text.toString(),
+                etNote.text.toString(),
+                model.iconName!!
             )
-            vm.insert(password)
+            model.insert(password)
         }
 
     }
 
     private fun initObserve() {
-        vm.insertLiveData.observe(viewLifecycleOwner) { item ->
-            val action =
-                AddPasswordFragmentDirections.actionAddToSuccess(
-                    item
-                )
-            findNavController().navigate(action)
+        observe(vModel().insertLiveData) { item ->
+            val action = AddPasswordFragmentDirections.actionAddToSuccess(item)
+            startAction(action)
             iconsAdapter.resetIcons()
         }
     }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
