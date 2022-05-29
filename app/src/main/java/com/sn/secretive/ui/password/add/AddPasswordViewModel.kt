@@ -19,14 +19,23 @@ class AddPasswordViewModel @Inject constructor(private val passwordRepository: P
     private val _insertLiveData: MutableLiveData<PasswordItemModel> = MutableLiveData()
     val insertLiveData: LiveData<PasswordItemModel> get() = _insertLiveData
 
+    private var iconName: String? = null
     val btnSaveEnabled = ObservableBoolean(false)
-    var iconName: String? = null
 
     fun onInfoChange(password: String, title: String) {
         btnSaveEnabled.set(title.isNotEmpty() && password.isNotEmpty() && iconName != null)
     }
 
-    fun insert(passwordItemModel: PasswordItemModel) = viewModelScope.launch {
+    fun setIconName(iconName: String) {
+        this.iconName = iconName
+    }
+
+    fun setInsertArgument(title: String, password: String, note: String?) {
+        val item = PasswordItemModel(null, title, password, note, iconName!!)
+        insert(item)
+    }
+
+    private fun insert(passwordItemModel: PasswordItemModel) = viewModelScope.launch {
         passwordRepository.insert(passwordItemModel)
     }.invokeOnCompletion { err ->
         if (err == null) _insertLiveData.value = passwordItemModel

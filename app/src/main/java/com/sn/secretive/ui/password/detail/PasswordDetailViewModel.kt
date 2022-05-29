@@ -14,13 +14,23 @@ import javax.inject.Inject
 class PasswordDetailViewModel @Inject constructor(private val passwordRepository: PasswordRepository) :
     ViewModel() {
 
+    private var iconName: String? = null
     private val _updateLiveData: MutableLiveData<PasswordItemModel> = MutableLiveData()
     val updateLiveData: LiveData<PasswordItemModel> get() = _updateLiveData
 
-    fun update(passwordItemModel: PasswordItemModel) = viewModelScope.launch {
+    private fun update(passwordItemModel: PasswordItemModel) = viewModelScope.launch {
         passwordRepository.update(passwordItemModel)
     }.invokeOnCompletion { err ->
         if (err == null) _updateLiveData.value = passwordItemModel
+    }
+
+    fun setIconName(iconName: String) {
+        this.iconName = iconName
+    }
+
+    fun setUpdateArgument(id: Int, title: String, password: String, note: String?) {
+        val item = PasswordItemModel(id, title, password, note, iconName!!)
+        update(item)
     }
 
     companion object {

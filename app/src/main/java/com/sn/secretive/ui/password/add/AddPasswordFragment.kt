@@ -1,12 +1,9 @@
 package com.sn.secretive.ui.password.add
 
-import android.content.Context
-import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.sn.secretive.R
-import com.sn.secretive.adapter.IconsAdapter
-import com.sn.secretive.data.model.PasswordItemModel
+import com.sn.secretive.components.IconPicker
 import com.sn.secretive.databinding.FragmentAddPasswordBinding
 import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.observe
@@ -17,9 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPasswordBinding>() {
 
-    private val iconsAdapter by lazy {
-        IconsAdapter(requireContext())
-    }
+    private lateinit var iconSelectedListener: IconPicker.ItemSelectedListener
 
     override fun getLayoutId(): Int = R.layout.fragment_add_password
 
@@ -30,7 +25,6 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
         dataBinding: FragmentAddPasswordBinding
     ) = with(dataBinding) {
         vm = model
-        rcvIcons.adapter = iconsAdapter
         initObserve()
 
         etTitle.doOnTextChanged { title, _, _, _ ->
@@ -41,20 +35,19 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
             model.onInfoChange(etTitle.text.toString(), password.toString())
         }
 
-        iconsAdapter.onClick = { iconName ->
-            model.iconName = iconName
-            model.onInfoChange(etTitle.text.toString(), etPassword.text.toString())
+        iconSelectedListener = object : IconPicker.ItemSelectedListener {
+            override fun onSelected(iconName: String) {
+                model.setIconName(iconName)
+                model.onInfoChange(etTitle.text.toString(), etPassword.toString())
+            }
         }
 
         btnSave.click {
-            val password = PasswordItemModel(
-                null,
+            model.setInsertArgument(
                 etTitle.text.toString(),
                 etPassword.text.toString(),
-                etNote.text.toString(),
-                model.iconName!!
+                etNote.text.toString()
             )
-            model.insert(password)
         }
 
     }
@@ -63,22 +56,17 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
         observe(vModel().insertLiveData) { item ->
             val action = AddPasswordFragmentDirections.actionAddToSuccess(item)
             startAction(action)
-            iconsAdapter.resetIcons()
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        requireActivity()
-            .onBackPressedDispatcher
-            .addCallback(this, object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    iconsAdapter.resetIcons()
-                    if (isEnabled) {
-                        isEnabled = false
-                        requireActivity().onBackPressed()
-                    }
-                }
-            })
+    override fun onResume() {
+        super.onResume()
+        getBinding().iconPicker.subscribe(iconSelectedListener)
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        getBinding().iconPicker.unSubscribe()
     }
 }

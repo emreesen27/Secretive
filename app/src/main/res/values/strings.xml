@@ -20,6 +20,7 @@
     <string name="password">Password</string>
     <string name="note">Note</string>
     <string name="choose_icon">Choose an icon that will remind you of your password</string>
+    <string name="choose_icon_title">Choose icon</string>
     <string name="return_home_page">Return home page</string>
     <string name="go_to_password_detail">Go to password detail</string>
     <string name="password_successfully_added">Password successfully added</string>
