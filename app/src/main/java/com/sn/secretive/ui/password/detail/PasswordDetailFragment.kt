@@ -11,7 +11,9 @@ import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.BottomSheetUpdateBinding
 import com.sn.secretive.databinding.FragmentPasswordDetailBinding
 import com.sn.secretive.extensions.click
+import com.sn.secretive.extensions.observe
 import com.sn.secretive.extensions.showToast
+import com.sn.secretive.ui.password.PasswordActivity
 import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +34,8 @@ class PasswordDetailFragment :
         dataBinding: FragmentPasswordDetailBinding
     ) = with(dataBinding) {
 
-        itemP = arguments?.get("passwordItem") as PasswordItemModel
+        initObserve()
+        itemP = arguments?.get(PasswordActivity.PASSWORD_ITEM_KEY) as PasswordItemModel
         item = itemP
         model.setIconName(itemP.iconName)
         iconPicker.setImage(itemP.iconName)
@@ -44,11 +47,6 @@ class PasswordDetailFragment :
         dvNote.onClick =
             { showBottomSheet(PasswordDetailViewModel.NOTE, dvNote.value) }
 
-        model.updateLiveData.observe(viewLifecycleOwner) { item ->
-            dvTitle.value = item.title
-            dvPassword.value = item.password
-            dvNote.value = item.note.toString()
-        }
 
         iconSelectedListener = object : IconPicker.ItemSelectedListener {
             override fun onSelected(iconName: String) {
@@ -64,6 +62,14 @@ class PasswordDetailFragment :
             }
         }
 
+    }
+
+    private fun initObserve() {
+        observe(vModel().updateLiveData) { item ->
+            getBinding().dvTitle.value = item.title
+            getBinding().dvPassword.value = item.password
+            getBinding().dvNote.value = item.note.toString()
+        }
     }
 
     private fun showBottomSheet(tag: String, oldValue: String) {

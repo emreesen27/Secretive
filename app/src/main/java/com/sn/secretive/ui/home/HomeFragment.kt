@@ -73,14 +73,14 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private fun navigateAddPass() {
         val intent = Intent(requireContext(), PasswordActivity::class.java)
-        intent.putExtra("flow", PasswordFlow.ADD_PASSWORD.flow)
+        intent.putExtra(PasswordActivity.PASSWORD_FLOW_KEY, PasswordFlow.ADD_PASSWORD.flow)
         startActivity(intent)
     }
 
     private fun navigatePassDetail(item: PasswordItemModel) {
         val intent = Intent(requireContext(), PasswordActivity::class.java)
-        intent.putExtra("flow", PasswordFlow.DETAIL_PASSWORD.flow)
-        intent.putExtra("passwordItem", item)
+        intent.putExtra(PasswordActivity.PASSWORD_FLOW_KEY, PasswordFlow.DETAIL_PASSWORD.flow)
+        intent.putExtra(PasswordActivity.PASSWORD_ITEM_KEY, item)
         startActivity(intent)
     }
 

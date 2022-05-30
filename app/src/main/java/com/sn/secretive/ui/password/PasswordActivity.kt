@@ -15,11 +15,9 @@ class PasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password)
 
-        val flow = intent.getStringExtra("flow")
-        val passwordItem = intent.getParcelableExtra<PasswordItemModel>("passwordItem")
-        val bundle = bundleOf(
-            "passwordItem" to passwordItem
-        )
+        val flow = intent.getStringExtra(PASSWORD_FLOW_KEY)
+        val passwordItem = intent.getParcelableExtra<PasswordItemModel>(PASSWORD_ITEM_KEY)
+        val bundle = bundleOf(PASSWORD_ITEM_KEY to passwordItem)
         setNavigationGraph(
             if (flow == PasswordFlow.ADD_PASSWORD.flow) R.id.add_password_fragment else R.id.detail_fragment,
             bundle
@@ -33,7 +31,11 @@ class PasswordActivity : AppCompatActivity() {
         val navGraph = navController.navInflater.inflate(R.navigation.password_graph)
         navGraph.setStartDestination(startDestId)
         navController.setGraph(navGraph, bundle)
+    }
 
+    companion object {
+        const val PASSWORD_FLOW_KEY = "flow"
+        const val PASSWORD_ITEM_KEY = "passwordItem"
     }
 
 }
