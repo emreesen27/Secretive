@@ -23,7 +23,7 @@ class PasswordDetailFragment :
 
     private lateinit var iconSelectedListener: IconPicker.ItemSelectedListener
     private lateinit var bottomSheetDialog: BottomSheetDialog
-    private lateinit var itemP: PasswordItemModel
+    private lateinit var passwordItemModel: PasswordItemModel
 
     override fun getLayoutId(): Int = R.layout.fragment_password_detail
 
@@ -35,10 +35,10 @@ class PasswordDetailFragment :
     ) = with(dataBinding) {
 
         initObserve()
-        itemP = arguments?.get(PasswordActivity.PASSWORD_ITEM_KEY) as PasswordItemModel
-        item = itemP
-        model.setIconName(itemP.iconName)
-        iconPicker.setImage(itemP.iconName)
+        passwordItemModel = arguments?.get(PasswordActivity.PASSWORD_ITEM_KEY) as PasswordItemModel
+        item = passwordItemModel
+        model.setIconName(passwordItemModel.iconName)
+        iconPicker.setImage(passwordItemModel.iconName)
 
         dvTitle.onClick =
             { showBottomSheet(PasswordDetailViewModel.TITLE, dvTitle.value) }
@@ -51,7 +51,7 @@ class PasswordDetailFragment :
         iconSelectedListener = object : IconPicker.ItemSelectedListener {
             override fun onSelected(iconName: String) {
                 model.setIconName(iconName)
-                itemP.id?.let {
+                passwordItemModel.id?.let {
                     model.setUpdateArgument(
                         it,
                         getBinding().dvTitle.value,
@@ -109,7 +109,7 @@ class PasswordDetailFragment :
                 return@click
             }
 
-            itemP.id?.let {
+            passwordItemModel.id?.let {
                 vModel().setUpdateArgument(
                     it,
                     title,
