@@ -6,7 +6,7 @@ import android.content.Context
 import android.widget.Toast
 
 fun Context.getIcon(name: String): Int {
-    return this.resources.getIdentifier(name, "drawable", this.packageName);
+    return this.resources.getIdentifier(name, "drawable", this.packageName)
 }
 
 fun Context.copyToClipboard(text: CharSequence) {
@@ -15,6 +15,6 @@ fun Context.copyToClipboard(text: CharSequence) {
     clipboard.setPrimaryClip(clip)
 }
 
-fun Context.showToast(msg: String, drt: Int ) {
+fun Context.showToast(msg: String, drt: Int) {
     Toast.makeText(this, msg, drt).show()
 }

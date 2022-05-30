@@ -6,11 +6,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sn.secretive.R
+import com.sn.secretive.components.IconPicker
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.BottomSheetUpdateBinding
 import com.sn.secretive.databinding.FragmentPasswordDetailBinding
 import com.sn.secretive.extensions.click
-import com.sn.secretive.extensions.getIcon
 import com.sn.secretive.extensions.showToast
 import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PasswordDetailFragment :
     BaseFragment<PasswordDetailViewModel, FragmentPasswordDetailBinding>() {
 
+    private lateinit var iconSelectedListener: IconPicker.ItemSelectedListener
     private lateinit var bottomSheetDialog: BottomSheetDialog
     private lateinit var itemP: PasswordItemModel
 
@@ -33,7 +34,8 @@ class PasswordDetailFragment :
 
         itemP = arguments?.get("passwordItem") as PasswordItemModel
         item = itemP
-        ivIcon.setImageResource(requireContext().getIcon(itemP.iconName))
+        model.setIconName(itemP.iconName)
+        iconPicker.setImage(itemP.iconName)
 
         dvTitle.onClick =
             { showBottomSheet(PasswordDetailViewModel.TITLE, dvTitle.value) }
@@ -46,6 +48,20 @@ class PasswordDetailFragment :
             dvTitle.value = item.title
             dvPassword.value = item.password
             dvNote.value = item.note.toString()
+        }
+
+        iconSelectedListener = object : IconPicker.ItemSelectedListener {
+            override fun onSelected(iconName: String) {
+                model.setIconName(iconName)
+                itemP.id?.let {
+                    model.setUpdateArgument(
+                        it,
+                        getBinding().dvTitle.value,
+                        getBinding().dvPassword.value,
+                        getBinding().dvNote.value
+                    )
+                }
+            }
         }
 
     }
@@ -87,10 +103,27 @@ class PasswordDetailFragment :
                 return@click
             }
 
-            val item = PasswordItemModel(itemP.id, title, pass, note, itemP.iconName)
-            vModel().update(item)
+            itemP.id?.let {
+                vModel().setUpdateArgument(
+                    it,
+                    title,
+                    pass,
+                    note
+                )
+            }
         }
         bottomSheetDialog.show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getBinding().iconPicker.subscribe(iconSelectedListener)
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        getBinding().iconPicker.unSubscribe()
     }
 
 }
