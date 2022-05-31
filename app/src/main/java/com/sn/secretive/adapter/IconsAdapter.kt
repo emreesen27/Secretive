@@ -21,9 +21,9 @@ class IconsAdapter(private val context: Context) :
         IconModel(R.drawable.ic_instagram, false, "ic_instagram", "Instagram"),
         IconModel(R.drawable.ic_gmail, false, "ic_gmail", "Gmail"),
         IconModel(R.drawable.ic_twitter, false, "ic_twitter", "Twitter"),
-        IconModel(R.drawable.ic_password, false, "ic_password", "Password Blue"),
-        IconModel(R.drawable.ic_password_green, false, "ic_password_green", "Password Green"),
-        IconModel(R.drawable.ic_password_blue, false, "ic_password_blue", "Password Blue"),
+        IconModel(R.drawable.ic_password, false, "ic_password", "Password gray"),
+        IconModel(R.drawable.ic_password_green, false, "ic_password_green", "Password green"),
+        IconModel(R.drawable.ic_password_blue, false, "ic_password_blue", "Password blue"),
     )
     var onClick: ((String) -> Unit)? = null
     private var notifyItems: List<IconModel> by Delegates.observable(items) { _, old, new ->
