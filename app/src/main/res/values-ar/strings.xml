@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Secretive</string>
+    <string name="key_continue">استمر</string>
+    <string name="pin_info">يتم أخذ رقم التعريف الشخصي الخاص بك كإجراء احترازي. يمكنك أيضًا استخدام رقم التعريف الشخصي بجهازك وبصمة الإصبع لتسجيل الدخول</string>
+    <string name="create_pin">يرجى إنشاء رقم التعريف الشخصي</string>
+    <string name="login_info">تسجيل الدخول ببصمة إصبعك أو رمز PIN</string>
+    <string name="login_finger_print">تسجيل الدخول باستخدام بصمة إصبعك</string>
+    <string name="wrong_pin">رقم التعريف الشخصي خاطئ!</string>
+    <string name="err_pin">لا يمكن الوصول إلى رقم التعريف الشخصي المسجل</string>
+    <string name="home">الرئيسية</string>
+    <string name="settings">الإعدادات</string>
+    <string name="about">عنا</string>
+    <string name="about_desc">انظر تفاصيل التطبيق</string>
+    <string name="theme">سمة</string>
+    <string name="theme_desc">تغيير سمة التطبيق</string>
+    <string name="language">اللغة</string>
+    <string name="save">حفظ</string>
+    <string name="add_new_password">إضافة كلمة سر جديدة</string>
+    <string name="title">العنوان</string>
+    <string name="password">كلمة السر</string>
+    <string name="note">ملاحظة</string>
+    <string name="choose_icon">اختر رمزًا يذكرك بكلمة المرور الخاصة بك</string>
+    <string name="choose_icon_title">اختر أيقونة</string>
+    <string name="return_home_page">العودة الصفحة الرئيسية</string>
+    <string name="go_to_password_detail">انتقل إلى تفاصيل كلمة المرور</string>
+    <string name="password_successfully_added">تمت إضافة كلمة المرور بنجاح</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="delete">حذف</string>
+    <string name="update">تحديث</string>
+    <string name="show_detail">أظهرالتفاصيل</string>
+    <string name="choose_action">اختر الإجراء</string>
+    <string name="open_source_license">Open Source &amp; License</string>
+    <string name="open_source_desc">تم تطوير هذا التطبيق كمصدر مفتوح</string>
+    <string name="password_copied">تم نسخ كلمة المرور</string>
+    <string name="no_password_found">لم يتم العثور على كلمة مرور</string>
+    <string name="click_to_add">انقر للإضافة</string>
+    <string name="empty_err_messages">لا يمكن أن تكون القيمة فارغة</string>
+</resources>
