@@ -6,6 +6,6 @@ echo "Checking code formatting"
 
 STATUS=$?
 
-# return 1 exit code if running checks fails 
-[ $STATUS -ne 0] && exit 1
+# return 1 exit code if running checks fails
+[ $STATUS -ne 0 ]  && exit 1
 exit 0
