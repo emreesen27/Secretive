@@ -32,7 +32,7 @@
     <string name="open_source_license">Open Source &amp; License</string>
     <string name="open_source_desc">This application is developed as open source</string>
     <string name="password_copied">Password copied</string>
-    <string name="no_password_found">No password found</string>
+    <string name="no_password_found">Nothing to show</string>
     <string name="click_to_add">Click to add</string>
     <string name="empty_err_messages">Value cannot be empty</string>
 
