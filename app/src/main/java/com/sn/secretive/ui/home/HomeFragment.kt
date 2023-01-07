@@ -8,12 +8,12 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sn.secretive.R
-import com.sn.secretive.databinding.FragmentHomeBinding
-import com.sn.secretive.ui.password.PasswordActivity
 import com.sn.secretive.adapter.PasswordAdapter
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.BottomSheetDeleteBinding
-import com.sn.secretive.extensions.*
+import com.sn.secretive.databinding.FragmentHomeBinding
+import com.sn.secretive.extensions.* // ktlint-disable no-wildcard-imports other-rule-id
+import com.sn.secretive.ui.password.PasswordActivity
 import com.sn.secretive.ui.password.PasswordFlow
 import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,9 +37,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
             floatActionButton.click { navigateAddPass() }
             tvAddPassword.click { navigateAddPass() }
-
         }
-
 
     private fun initObserve() {
         observe(vModel().passwordLiveData) { passwords ->
@@ -51,7 +49,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             passwordAdapter.notifyItemRemoved(position)
         }
     }
-
 
     private fun initRecyclerview() {
         getBinding().rcvPass.addItemDecoration(
@@ -69,7 +66,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             showBottomSheet(passwordItem, position)
         }
     }
-
 
     private fun navigateAddPass() {
         val intent = Intent(requireContext(), PasswordActivity::class.java)
@@ -109,8 +105,5 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             requireContext().showToast(getString(R.string.password_copied), Toast.LENGTH_LONG)
         }
         bottomSheetDialog.show()
-
     }
-
-
 }

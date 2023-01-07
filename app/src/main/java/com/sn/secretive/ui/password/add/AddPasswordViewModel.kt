@@ -1,6 +1,5 @@
 package com.sn.secretive.ui.password.add
 
-
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -40,5 +39,4 @@ class AddPasswordViewModel @Inject constructor(private val passwordRepository: P
     }.invokeOnCompletion { err ->
         if (err == null) _insertLiveData.value = passwordItemModel
     }
-
 }

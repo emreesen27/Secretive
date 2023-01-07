@@ -1,21 +1,16 @@
 package com.sn.secretive.ui.login
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.sn.biometric.Biometric
 import com.sn.biometric.BiometricListener
+import com.sn.secretive.R
+import com.sn.secretive.databinding.FragmentLoginBinding
+import com.sn.secretive.extensions.* // ktlint-disable no-wildcard-imports other-rule-id
+import com.sn.secretive.ui.NavActivity
 import com.sn.secretive.ui.login.LoginViewModel.Companion.DB_ERR
 import com.sn.secretive.ui.login.LoginViewModel.Companion.SUCCESS
 import com.sn.secretive.ui.login.LoginViewModel.Companion.WRONG_PIN
-import com.sn.secretive.R
-import com.sn.secretive.databinding.FragmentLoginBinding
-import com.sn.secretive.extensions.*
-import com.sn.secretive.ui.NavActivity
 import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,8 +49,6 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
                     }
                 }
             }
-
-
         }
 
     override fun onResume() {
@@ -68,7 +61,6 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
         biometric.unSubscribe()
     }
 
-
     private fun initBiometric() {
         biometric = Biometric(requireContext())
         biometricListener = object : BiometricListener {
@@ -77,7 +69,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             }
 
             override fun onFingerprintAuthenticationFailure(errorMessage: String, errorCode: Int) {
-                //Todo show err msg
+                // Todo show err msg
             }
         }
         biometric.subscribe(biometricListener)
@@ -111,5 +103,4 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             getBinding().btnLogin.isEnabled = true
         }
     }
-
 }

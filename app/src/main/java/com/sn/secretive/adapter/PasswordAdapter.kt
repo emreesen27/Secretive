@@ -10,7 +10,6 @@ import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.getIcon
 import kotlin.properties.Delegates
 
-
 class PasswordAdapter(private val context: Context) :
     RecyclerView.Adapter<PasswordAdapter.PasswordViewHolder>(),
     AutoUpdatableAdapter {
@@ -41,7 +40,6 @@ class PasswordAdapter(private val context: Context) :
 
     override fun getItemCount(): Int = items.size
 
-
     inner class PasswordViewHolder(val binding: ItemPasswordBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -50,5 +48,4 @@ class PasswordAdapter(private val context: Context) :
             binding.ivIcon.setImageResource(context.getIcon(item.iconName))
         }
     }
-
 }

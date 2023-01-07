@@ -2,10 +2,10 @@ package com.sn.secretive.ui.password.add
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.FragmentAddPassSuccessBinding
@@ -21,7 +21,8 @@ class AddPassSuccessFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         return binding.root
@@ -48,6 +49,4 @@ class AddPassSuccessFragment : Fragment() {
         intent.putExtra("passwordItem", item)
         startActivity(intent)
     }
-
-
 }

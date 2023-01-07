@@ -4,13 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sn.secretive.extensions.click
-import kotlin.properties.Delegates
 import com.sn.secretive.R
 import com.sn.secretive.data.model.IconModel
 import com.sn.secretive.databinding.ItemIconBinding
+import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.getIcon
-
+import kotlin.properties.Delegates
 
 class IconsAdapter(private val context: Context) :
     RecyclerView.Adapter<IconsAdapter.IconsViewHolder>(),
@@ -29,7 +28,6 @@ class IconsAdapter(private val context: Context) :
     private var notifyItems: List<IconModel> by Delegates.observable(items) { _, old, new ->
         autoNotify(old, new) { o, n -> o.isSelected != n.isSelected }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconsViewHolder =
         IconsViewHolder(
@@ -54,5 +52,4 @@ class IconsAdapter(private val context: Context) :
             binding.tvIconName.text = item.name
         }
     }
-
 }

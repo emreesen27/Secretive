@@ -35,6 +35,4 @@ class DatabaseModule {
             "secretive"
         ).allowMainThreadQueries().build()
     }
-
-
 }

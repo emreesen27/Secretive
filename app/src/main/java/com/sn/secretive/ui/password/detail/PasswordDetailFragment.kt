@@ -47,7 +47,6 @@ class PasswordDetailFragment :
         dvNote.onClick =
             { showBottomSheet(PasswordDetailViewModel.NOTE, dvNote.value) }
 
-
         iconSelectedListener = object : IconPicker.ItemSelectedListener {
             override fun onSelected(iconName: String) {
                 model.setIconName(iconName)
@@ -61,7 +60,6 @@ class PasswordDetailFragment :
                 }
             }
         }
-
     }
 
     private fun initObserve() {
@@ -124,12 +122,10 @@ class PasswordDetailFragment :
     override fun onResume() {
         super.onResume()
         getBinding().iconPicker.subscribe(iconSelectedListener)
-
     }
 
     override fun onPause() {
         super.onPause()
         getBinding().iconPicker.unSubscribe()
     }
-
 }

@@ -17,7 +17,8 @@ import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.getIcon
 
 class IconPicker @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : ConstraintLayout(context, attrs) {
 
     private var iconView: ImageView
@@ -74,10 +75,8 @@ class IconPicker @JvmOverloads constructor(
             iconView.setImageResource(context.getIcon(iconName))
             itemSelectedListener?.onSelected(iconName)
             bottomSheetDialog.dismiss()
-
         }
         bindingSheet.ivClose.setOnClickListener { bottomSheetDialog.dismiss() }
         bottomSheetDialog.show()
     }
-
 }

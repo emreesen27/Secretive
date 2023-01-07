@@ -48,5 +48,4 @@ abstract class BaseFragment<V : ViewModel, B : ViewDataBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bindViewModel(viewModel, dataBinding)
     }
-
 }

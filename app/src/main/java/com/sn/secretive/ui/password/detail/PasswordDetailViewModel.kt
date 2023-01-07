@@ -38,5 +38,4 @@ class PasswordDetailViewModel @Inject constructor(private val passwordRepository
         const val PASSWORD = "Password"
         const val NOTE = "Note"
     }
-
 }

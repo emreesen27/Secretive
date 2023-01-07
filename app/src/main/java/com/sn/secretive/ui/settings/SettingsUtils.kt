@@ -33,8 +33,4 @@ object SettingsUtils {
             }
         }
     }
-
 }
-
-
-

@@ -10,7 +10,6 @@ import com.sn.secretive.extensions.observe
 import com.sn.secretive.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPasswordBinding>() {
 
@@ -49,7 +48,6 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
                 etNote.text.toString()
             )
         }
-
     }
 
     private fun initObserve() {
@@ -62,7 +60,6 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
     override fun onResume() {
         super.onResume()
         getBinding().iconPicker.subscribe(iconSelectedListener)
-
     }
 
     override fun onPause() {

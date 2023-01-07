@@ -10,9 +10,9 @@ import com.sn.secretive.R
 import com.sn.secretive.extensions.click
 
 class DetailView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : ConstraintLayout(context, attrs) {
-
 
     private var titleTextView: MaterialTextView
     private var valueTextView: MaterialTextView
@@ -30,7 +30,6 @@ class DetailView @JvmOverloads constructor(
             valueTextView.text = v
         }
 
-
     init {
         inflate(context, R.layout.detail_view_layout, this)
 
@@ -46,9 +45,7 @@ class DetailView @JvmOverloads constructor(
         }
 
         attributes.recycle()
-
     }
-
 }
 
 @BindingAdapter("valueText")

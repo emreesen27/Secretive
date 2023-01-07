@@ -1,13 +1,12 @@
 package com.sn.secretive
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.sn.secretive.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.sn.secretive.databinding.ActivityMainBinding
 import com.sn.secretive.ui.settings.SettingsUtils
-
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -25,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         vm.sessionLiveData.observe(this) { user ->
             setNavigationGraph(if (user == null) R.id.pin_fragment else R.id.LoginFragment)
         }
-
     }
 
     private fun setLocalTheme() {

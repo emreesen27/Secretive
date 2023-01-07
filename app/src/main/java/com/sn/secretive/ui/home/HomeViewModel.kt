@@ -1,6 +1,6 @@
 package com.sn.secretive.ui.home
 
-import androidx.lifecycle.*
+import androidx.lifecycle.* // ktlint-disable no-wildcard-imports other-rule-id
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.data.repository.PasswordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,12 +17,10 @@ class HomeViewModel @Inject constructor(private val passwordRepository: Password
     val passwordLiveData: LiveData<MutableList<PasswordItemModel>> =
         passwordRepository.passwords.asLiveData()
 
-
     fun deletePassword(passwordItemModel: PasswordItemModel, position: Int) =
         viewModelScope.launch {
             passwordRepository.delete(passwordItemModel)
         }.invokeOnCompletion { err ->
             if (err == null) _deletePassLiveData.value = position
         }
-
 }

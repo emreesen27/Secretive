@@ -1,6 +1,6 @@
 package com.sn.secretive.data.room
 
-import androidx.room.*
+import androidx.room.* // ktlint-disable no-wildcard-imports other-rule-id
 import com.sn.secretive.data.model.PasswordItemModel
 import kotlinx.coroutines.flow.Flow
 

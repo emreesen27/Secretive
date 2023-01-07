@@ -1,14 +1,13 @@
 package com.sn.secretive.ui.settings
 
-import android.os.Bundle
-import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
+import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
 import com.sn.secretive.R
-
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -51,8 +50,4 @@ class SettingsFragment : PreferenceFragmentCompat() {
             mListenerOptions
         )
     }
-
-
 }
-
-

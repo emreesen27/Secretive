@@ -14,5 +14,4 @@ class SessionRepository @Inject constructor(private val sessionDao: SessionDao) 
     suspend fun insert(sessionModel: SessionModel) {
         return sessionDao.insert(sessionModel)
     }
-
 }

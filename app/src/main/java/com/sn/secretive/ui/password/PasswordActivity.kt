@@ -1,7 +1,7 @@
 package com.sn.secretive.ui.password
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.NavHostFragment
 import com.sn.secretive.R
@@ -37,5 +37,4 @@ class PasswordActivity : AppCompatActivity() {
         const val PASSWORD_FLOW_KEY = "flow"
         const val PASSWORD_ITEM_KEY = "passwordItem"
     }
-
 }

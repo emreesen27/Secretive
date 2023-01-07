@@ -3,6 +3,5 @@ package com.sn.secretive
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
-
 @HiltAndroidApp
-class BaseApplication : Application() {}
+class BaseApplication : Application()
