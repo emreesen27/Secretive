@@ -1,0 +1,2 @@
+- name: Run ktlint with reviewdog
+  uses: ScaCap/action-ktlint@1.5.1
