@@ -40,7 +40,6 @@ class DetailView @JvmOverloads constructor(
 
         attributes.recycle()
     }
-
 }
 
 @BindingAdapter("valueText")
