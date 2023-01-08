@@ -29,7 +29,8 @@ class PasswordDetailFragment :
         dataBinding: FragmentPasswordDetailBinding
     ) = with(dataBinding) {
 
-        initObserve()
+        initObserve(dataBinding)
+
         passwordItemModel = arguments?.get(PasswordActivity.PASSWORD_ITEM_KEY) as PasswordItemModel
         item = passwordItemModel
         model.setIconName(passwordItemModel.iconName)
@@ -50,7 +51,7 @@ class PasswordDetailFragment :
         }
 
         btnSave.click {
-            if (dvTitle.value.isEmpty() || dvPassword.value.isEmpty() || dvNote.value.isEmpty()) {
+            if (dvTitle.value.isEmpty() || dvPassword.value.isEmpty()) {
                 context?.showToast(getString(R.string.empty_err_messages), Toast.LENGTH_SHORT)
                 return@click
             }
@@ -65,12 +66,14 @@ class PasswordDetailFragment :
         }
     }
 
-    private fun initObserve() {
-        observe(vModel().updateLiveData) { item ->
-            getBinding().dvTitle.value = item.title
-            getBinding().dvPassword.value = item.password
-            getBinding().dvNote.value = item.note.toString()
-            context?.showToast(getString(R.string.successful), Toast.LENGTH_SHORT)
+    private fun initObserve(binding: FragmentPasswordDetailBinding) {
+        with(binding) {
+            observe(vModel().updateLiveData) { item ->
+                dvTitle.value = item.title
+                dvPassword.value = item.password
+                dvNote.value = item.note.toString()
+                context?.showToast(getString(R.string.successful), Toast.LENGTH_SHORT)
+            }
         }
     }
 
