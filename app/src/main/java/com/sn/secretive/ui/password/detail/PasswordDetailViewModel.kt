@@ -32,5 +32,4 @@ class PasswordDetailViewModel @Inject constructor(private val passwordRepository
         val item = PasswordItemModel(id, title, password, note, iconName!!)
         update(item)
     }
-
 }

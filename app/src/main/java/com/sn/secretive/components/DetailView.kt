@@ -12,7 +12,6 @@ import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.hideKeyboard
 import com.sn.secretive.extensions.showKeyboard
 
-
 class DetailView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
