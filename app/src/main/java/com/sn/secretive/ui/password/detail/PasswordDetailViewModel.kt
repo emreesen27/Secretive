@@ -33,9 +33,4 @@ class PasswordDetailViewModel @Inject constructor(private val passwordRepository
         update(item)
     }
 
-    companion object {
-        const val TITLE = "Title"
-        const val PASSWORD = "Password"
-        const val NOTE = "Note"
-    }
 }
