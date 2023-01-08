@@ -4,45 +4,34 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="10dp"
-    android:padding="5dp">
+    android:padding="10dp">
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_title"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nexa_regular"
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        android:text="@string/title"
-        android:textColor="@color/secondary_text_color"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_value"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:drawableEnd="@drawable/ic_right"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/nexa_regular"
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        android:textColor="@color/primary_text_color"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_color"
+        android:hint="@string/title"
+        app:boxStrokeColor="@color/input_layout_selector"
+        app:hintTextColor="@color/secondary_text_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:layout_marginTop="3dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintTop_toBottomOf="@+id/tv_value" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background_color"
+            android:fontFamily="@font/nexa_regular"
+            android:inputType="text"
+            android:maxLength="25"
+            android:textColor="@color/primary_text_color"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

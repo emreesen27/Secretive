@@ -2,50 +2,45 @@ package com.sn.secretive.components
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
-import com.google.android.material.textview.MaterialTextView
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.sn.secretive.R
-import com.sn.secretive.extensions.click
 
 class DetailView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : ConstraintLayout(context, attrs) {
 
-    private var titleTextView: MaterialTextView
-    private var valueTextView: MaterialTextView
-    var onClick: ((View) -> Unit)? = null
+    private var titleInputLayout: TextInputLayout
+    private var valueEditText: TextInputEditText
 
     private var title: String
-        get() = titleTextView.text.toString()
+        get() = titleInputLayout.hint.toString()
         set(v) {
-            titleTextView.text = v
+            titleInputLayout.hint = v
         }
 
     var value: String
-        get() = valueTextView.text.toString()
+        get() = valueEditText.text.toString()
         set(v) {
-            valueTextView.text = v
+            valueEditText.setText(v)
         }
 
     init {
         inflate(context, R.layout.detail_view_layout, this)
 
-        titleTextView = findViewById(R.id.tv_title)
-        valueTextView = findViewById(R.id.tv_value)
+        valueEditText = findViewById(R.id.et_value)
+        titleInputLayout = findViewById(R.id.til_title)
 
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.DetailView)
         title = attributes.getString(R.styleable.DetailView_titleText) ?: "Title"
         value = attributes.getString(R.styleable.DetailView_valueText) ?: "Value"
 
-        findViewById<ConstraintLayout>(R.id.container).click {
-            onClick?.invoke(it)
-        }
-
         attributes.recycle()
     }
+
 }
 
 @BindingAdapter("valueText")
