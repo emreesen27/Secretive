@@ -37,4 +37,5 @@
     <string name="click_to_add">انقر للإضافة</string>
     <string name="empty_err_messages">لا يمكن أن تكون القيمة فارغة</string>
     <string name="successful">ناجح</string>
+    <string name="click_change_icon">انقر لتغيير الرمز الخاص بك</string>
 </resources>

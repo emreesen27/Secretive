@@ -37,4 +37,5 @@
     <string name="click_to_add">Eklemek için tıklayın</string>
     <string name="empty_err_messages">Değer boş olamaz</string>
     <string name="successful">Başarılı</string>
+    <string name="click_change_icon">Simgenizi değiştirmek için tıklayın</string>
 </resources>
