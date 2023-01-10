@@ -8,10 +8,13 @@ plugins {
     id "org.jlleitschuh.gradle.ktlint" version "10.0.0"
 }
 
-tasks.register('type', Copy) {
-    from rootProject.rootDir.file('scripts/pre-commit'), rootProject.rootDir.file('scripts/commit-msg')
-    into rootProject.rootDir.dir('.git/hooks')
+task installGitHook(type: Copy) {
+    from new File(rootProject.rootDir, 'scripts/pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+    fileMode 0777
 }
+
+tasks.getByPath(':app:preBuild').dependsOn installGitHook
 
 android {
     compileSdk 31
