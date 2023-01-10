@@ -9,8 +9,6 @@ import com.sn.secretive.extensions.click
 import com.sn.secretive.util.BaseFragment
 import com.sn.secretive.util.DateUtil
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.* // ktlint-disable no-wildcard-imports other-rule-id
 
 @AndroidEntryPoint
 class PinFragment : BaseFragment<PinViewModel, FragmentPinBinding>() {

@@ -1,7 +1,7 @@
 package com.sn.secretive.util
 
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports other-rule-id
 
 object DateUtil {
     fun getCurrentDate(): String {

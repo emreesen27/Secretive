@@ -10,5 +10,4 @@ object DatabaseMigration {
             database.execSQL("ALTER TABLE password_table ADD COLUMN last_edit_date TEXT")
         }
     }
-
 }
