@@ -2,6 +2,7 @@ package com.sn.secretive.di
 
 import android.content.Context
 import androidx.room.Room
+import com.sn.secretive.data.room.DatabaseMigration
 import com.sn.secretive.data.room.PasswordDao
 import com.sn.secretive.data.room.RoomDatabase
 import com.sn.secretive.data.room.SessionDao
@@ -33,6 +34,6 @@ class DatabaseModule {
             appContext,
             RoomDatabase::class.java,
             "secretive"
-        ).allowMainThreadQueries().build()
+        ).addMigrations(DatabaseMigration.getMigration()).allowMainThreadQueries().build()
     }
 }

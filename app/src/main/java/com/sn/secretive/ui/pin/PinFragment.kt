@@ -7,6 +7,7 @@ import com.sn.secretive.data.model.SessionModel
 import com.sn.secretive.databinding.FragmentPinBinding
 import com.sn.secretive.extensions.click
 import com.sn.secretive.util.BaseFragment
+import com.sn.secretive.util.DateUtil
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.* // ktlint-disable no-wildcard-imports other-rule-id
@@ -26,9 +27,7 @@ class PinFragment : BaseFragment<PinViewModel, FragmentPinBinding>() {
             }
 
             btnContinue.click {
-                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                val currentDate = sdf.format(Date())
-                val userModel = SessionModel(etPin.text.toString(), currentDate)
+                val userModel = SessionModel(etPin.text.toString(), DateUtil.getCurrentDate())
                 model.insert(userModel)
                 startAction(PinFragmentDirections.actionPinToLogin())
             }

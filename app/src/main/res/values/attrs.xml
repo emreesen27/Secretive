@@ -6,7 +6,7 @@
     </declare-styleable>
 
     <declare-styleable name="IconPicker">
-        <attr name="descriptionText" format="string"/>
+        <attr name="descriptionText" format="string" />
     </declare-styleable>
 
 </resources>

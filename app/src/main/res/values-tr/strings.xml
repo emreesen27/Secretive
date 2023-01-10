@@ -38,4 +38,5 @@
     <string name="empty_err_messages">Değer boş olamaz</string>
     <string name="successful">Başarılı</string>
     <string name="click_change_icon">Simgenizi değiştirmek için tıklayın</string>
+    <string name="no_information">Bilgi yok</string>
 </resources>

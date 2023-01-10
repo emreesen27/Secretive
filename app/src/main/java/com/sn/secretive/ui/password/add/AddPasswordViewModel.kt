@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.data.repository.PasswordRepository
+import com.sn.secretive.util.DateUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,7 +31,8 @@ class AddPasswordViewModel @Inject constructor(private val passwordRepository: P
     }
 
     fun setInsertArgument(title: String, password: String, note: String?) {
-        val item = PasswordItemModel(null, title, password, note, iconName!!)
+        val item =
+            PasswordItemModel(null, title, password, note, iconName!!, DateUtil.getCurrentDate())
         insert(item)
     }
 

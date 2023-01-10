@@ -37,6 +37,7 @@
     <string name="empty_err_messages">Value cannot be empty</string>
     <string name="successful">Successful</string>
     <string name="click_change_icon">Click to change your icon</string>
+    <string name="no_information">No information</string>
 
     <string name="version" translatable="false">1.0.1</string>
     <string name="content_description" translatable="false">description</string>

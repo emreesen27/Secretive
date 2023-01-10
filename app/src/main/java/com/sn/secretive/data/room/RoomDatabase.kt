@@ -7,8 +7,8 @@ import com.sn.secretive.data.model.SessionModel
 
 @Database(
     entities = [SessionModel::class, PasswordItemModel::class],
-    version = 1,
-    exportSchema = false
+    version = 2,
+    exportSchema = false,
 )
 abstract class RoomDatabase : RoomDatabase() {
     abstract fun SessionDao(): SessionDao

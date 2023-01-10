@@ -19,5 +19,7 @@ data class PasswordItemModel(
     @ColumnInfo(name = "note")
     val note: String?,
     @ColumnInfo(name = "icon_name")
-    val iconName: String
+    val iconName: String,
+    @ColumnInfo(name = "last_edit_date")
+    val lastEditDate: String?
 ) : Parcelable
