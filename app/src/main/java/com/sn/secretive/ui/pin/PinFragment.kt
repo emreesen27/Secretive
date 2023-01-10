@@ -6,6 +6,7 @@ import com.sn.secretive.R
 import com.sn.secretive.data.model.SessionModel
 import com.sn.secretive.databinding.FragmentPinBinding
 import com.sn.secretive.extensions.click
+import com.sn.secretive.extensions.hideKeyboard
 import com.sn.secretive.util.BaseFragment
 import com.sn.secretive.util.DateUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,7 @@ class PinFragment : BaseFragment<PinViewModel, FragmentPinBinding>() {
             }
 
             btnContinue.click {
+                etPin.hideKeyboard()
                 val userModel = SessionModel(etPin.text.toString(), DateUtil.getCurrentDate())
                 model.insert(userModel)
                 startAction(PinFragmentDirections.actionPinToLogin())

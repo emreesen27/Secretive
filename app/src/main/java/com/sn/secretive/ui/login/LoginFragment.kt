@@ -35,6 +35,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             }
 
             btnLogin.click {
+                etPin.hideKeyboard()
                 when (model.checkPIN(etPin.text.toString())) {
                     SUCCESS -> {
                         navigateHome()
