@@ -25,7 +25,7 @@ class NavActivity : AppCompatActivity() {
         navController = findNavController(R.id.home_nav_host)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.about_fragment -> binding.bottomBar.gone()
+                R.id.about_fragment, R.id.change_pin_fragment -> binding.bottomBar.gone()
                 else -> binding.bottomBar.visible()
             }
         }

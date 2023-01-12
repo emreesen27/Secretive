@@ -39,4 +39,11 @@
     <string name="successful">Başarılı</string>
     <string name="click_change_icon">Simgenizi değiştirmek için tıklayın</string>
     <string name="no_information">Bilgi yok</string>
+    <string name="pin">Pin</string>
+    <string name="new_pin">Yeni pin</string>
+    <string name="confirm_pin">Pini onaylayın</string>
+    <string name="change_pin">Pin değiştir</string>
+    <string name="change_pin_desc">Pin kullanmanın ikincil yöntem olduğunu unutmayın, daha güvenli bir oturum için parmak izinizi kullanın</string>
+    <string name="pin_confirmation_error">Pinler birbiriyle uyuşmuyor !</string>
+    <string name="change_current_pin">Mevcut pini değiştirin</string>
 </resources>

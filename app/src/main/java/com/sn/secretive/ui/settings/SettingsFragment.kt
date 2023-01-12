@@ -22,6 +22,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             true
         }
 
+        val changePinButton: Preference? = findPreference(SettingsUtils.SECRETIVE_CHANGE_PIN)
+        changePinButton?.setOnPreferenceClickListener {
+            findNavController().navigate(SettingsFragmentDirections.actionSettingsToChangePin())
+            true
+        }
+
         val themeListPreference: ListPreference? =
             findPreference(SettingsUtils.SECRETIVE_THEME_MODE)
 

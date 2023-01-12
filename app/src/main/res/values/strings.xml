@@ -38,6 +38,13 @@
     <string name="successful">Successful</string>
     <string name="click_change_icon">Click to change your icon</string>
     <string name="no_information">No information</string>
+    <string name="pin">Pin</string>
+    <string name="new_pin">New pin</string>
+    <string name="confirm_pin">Confirm pin</string>
+    <string name="change_pin">Change pin</string>
+    <string name="change_pin_desc">Note that using a PIN is the second method, use a fingerprint for a more secure login</string>
+    <string name="pin_confirmation_error">Pin confirmation error !</string>
+    <string name="change_current_pin">Change your current pin</string>
 
     <string name="version" translatable="false">1.0.1</string>
     <string name="content_description" translatable="false">description</string>

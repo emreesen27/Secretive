@@ -57,6 +57,7 @@
                 android:id="@+id/no_pass_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:constraint_referenced_ids="av_search, tv_add_password, tv_no_password" />
 
 

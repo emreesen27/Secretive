@@ -15,6 +15,13 @@
             app:key="secretive.theme.mode"
             app:summary="@string/theme_desc" />
 
+        <Preference
+            android:layout="@layout/item_preference"
+            app:allowDividerAbove="true"
+            app:key="secretive.change.pin"
+            app:summary="@string/change_current_pin"
+            app:title="@string/change_pin" />
+
     </PreferenceCategory>
 
     <Preference
