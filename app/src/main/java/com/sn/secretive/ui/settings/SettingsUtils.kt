@@ -10,6 +10,7 @@ object SettingsUtils {
 
     const val SECRETIVE_THEME_MODE = "secretive.theme.mode"
     const val SECRETIVE_ABOUT = "secretive.about"
+    const val SECRETIVE_CHANGE_PIN = "secretive.change.pin"
 
     const val SYSTEM = "System"
     private const val DARK = "Dark"

@@ -1,86 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="vm"
-            type="com.sn.secretive.ui.password.add.AddPasswordViewModel" />
+            type="com.sn.secretive.ui.settings.changepin.ChangePinViewModel" />
 
     </data>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.sn.secretive.components.IconPicker
-            android:id="@+id/icon_picker"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_pin_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:descriptionText="@string/choose_icon"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/nexa_bold"
+            android:text="@string/change_pin"
+            android:textAlignment="center"
+            android:textColor="@color/primary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_pin_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nexa_regular"
+            android:text="@string/change_pin_desc"
+            android:textAlignment="center"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pin_title" />
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_title"
+            android:id="@+id/til_currently_pin"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="50dp"
             android:background="@color/background_color"
-            android:hint="@string/title"
+            android:hint="@string/pin"
             app:boxStrokeColor="@color/input_layout_selector"
-            app:hintTextColor="@color/secondary_text_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icon_picker">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/background_color"
-                android:fontFamily="@font/nexa_regular"
-                android:inputType="text"
-                android:maxLength="25"
-                android:textColor="@color/primary_text_color"
-                android:textCursorDrawable="@drawable/custom_cursor"
-                android:textSize="16sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/background_color"
-            android:hint="@string/password"
-            app:boxStrokeColor="@color/input_layout_selector"
-            app:hintTextColor="@color/secondary_text_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pin_info"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/primary_text_color">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_password"
+                android:id="@+id/et_currently_pin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_color"
+                android:drawablePadding="10dp"
                 android:fontFamily="@font/nexa_regular"
-                android:inputType="textPassword"
-                android:maxLength="25"
+                android:inputType="numberPassword"
+                android:maxLength="4"
                 android:textColor="@color/primary_text_color"
                 android:textCursorDrawable="@drawable/custom_cursor"
                 android:textSize="16sp" />
@@ -89,33 +78,68 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_note"
+            android:id="@+id/til_new_pin"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:background="@color/background_color"
-            android:hint="@string/note"
+            android:hint="@string/new_pin"
             app:boxStrokeColor="@color/input_layout_selector"
-            app:hintTextColor="@color/secondary_text_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_password">
+            app:layout_constraintTop_toBottomOf="@+id/til_currently_pin"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primary_text_color">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_note"
+                android:id="@+id/et_new_pin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_color"
+                android:drawablePadding="10dp"
                 android:fontFamily="@font/nexa_regular"
-                android:inputType="text"
-                android:maxLength="150"
+                android:inputType="numberPassword"
+                android:maxLength="4"
                 android:textColor="@color/primary_text_color"
                 android:textCursorDrawable="@drawable/custom_cursor"
                 android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_confirm_pin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/background_color"
+            android:hint="@string/confirm_pin"
+            app:boxStrokeColor="@color/input_layout_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_new_pin"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primary_text_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_confirm_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background_color"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nexa_regular"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+                android:textColor="@color/primary_text_color"
+                android:textCursorDrawable="@drawable/custom_cursor"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_save"
@@ -125,7 +149,7 @@
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="25dp"
             android:backgroundTint="@color/main_btn_selector"
-            android:enabled="@{vm.btnSaveEnabled}"
+            android:enabled="@{vm.btnEnabled}"
             android:fontFamily="@font/nexa_regular"
             android:padding="15dp"
             android:text="@string/save"
