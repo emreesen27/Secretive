@@ -19,8 +19,8 @@
     <string name="title">Title</string>
     <string name="password">Password</string>
     <string name="note">Note</string>
-    <string name="choose_icon"> Choose an icon related to your password</string>
-    <string name="choose_icon_title">Choose icon</string>
+    <string name="choose_icon"> Choose an image related to your password</string>
+    <string name="choose_icon_title">Choose image</string>
     <string name="return_home_page">Return home page</string>
     <string name="go_to_password_detail">Go to password detail</string>
     <string name="password_successfully_added">Password successfully added</string>
@@ -36,7 +36,7 @@
     <string name="click_to_add">Click to add</string>
     <string name="empty_err_messages">Value cannot be empty</string>
     <string name="successful">Successful</string>
-    <string name="click_change_icon">Click to change your icon</string>
+    <string name="click_change_icon">Click to change your image</string>
     <string name="no_information">No information</string>
     <string name="pin">Pin</string>
     <string name="new_pin">New pin</string>
@@ -45,6 +45,9 @@
     <string name="change_pin_desc">Note that using a PIN is the second method, use a fingerprint for a more secure login</string>
     <string name="pin_confirmation_error">Pin confirmation error !</string>
     <string name="change_current_pin">Change your current pin</string>
+    <string name="add_new_pass_desc">You can assign your password to an icon and add a note</string>
+    <string name="edit_pass">Edit password</string>
+    <string name="edit_pass_desc">Edit and save your password, if you want to delete it, visit the list screen</string>
 
     <string name="version" translatable="false">1.0.1</string>
     <string name="content_description" translatable="false">description</string>

@@ -65,6 +65,8 @@ dependencies {
     //Biometric module
     implementation project(":biometric")
 
+    implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
+
     //Bottom bar
     implementation 'nl.joery.animatedbottombar:library:1.1.0'
 
