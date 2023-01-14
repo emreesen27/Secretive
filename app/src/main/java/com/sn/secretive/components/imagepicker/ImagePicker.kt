@@ -50,6 +50,7 @@ class ImagePicker @JvmOverloads constructor(
         picker = findViewById(R.id.picker)
         picker.apply {
             adapter = imageAdapter
+            setSlideOnFling(true)
             picker.setItemTransformer(
                 ScaleTransformer.Builder()
                     .setMaxScale(1.05f)
