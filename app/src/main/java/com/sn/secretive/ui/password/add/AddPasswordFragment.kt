@@ -3,7 +3,7 @@ package com.sn.secretive.ui.password.add
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.sn.secretive.R
-import com.sn.secretive.components.IconPicker
+import com.sn.secretive.components.imagepicker.ImagePicker
 import com.sn.secretive.databinding.FragmentAddPasswordBinding
 import com.sn.secretive.extensions.click
 import com.sn.secretive.extensions.observe
@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPasswordBinding>() {
 
-    private lateinit var iconSelectedListener: IconPicker.ItemSelectedListener
+    private lateinit var iconSelectedListener: ImagePicker.ItemSelectedListener
 
     override fun getLayoutId(): Int = R.layout.fragment_add_password
 
@@ -34,9 +34,9 @@ class AddPasswordFragment() : BaseFragment<AddPasswordViewModel, FragmentAddPass
             model.onInfoChange(etTitle.text.toString(), password.toString())
         }
 
-        iconSelectedListener = object : IconPicker.ItemSelectedListener {
-            override fun onSelected(iconName: String) {
-                model.setIconName(iconName)
+        iconSelectedListener = object : ImagePicker.ItemSelectedListener {
+            override fun onSelected(imageName: String) {
+                model.setIconName(imageName)
                 model.onInfoChange(etTitle.text.toString(), etPassword.toString())
             }
         }

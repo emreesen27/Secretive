@@ -46,4 +46,7 @@
     <string name="change_pin_desc">Pin kullanmanın ikincil yöntem olduğunu unutmayın, daha güvenli bir oturum için parmak izinizi kullanın</string>
     <string name="pin_confirmation_error">Pinler birbiriyle uyuşmuyor !</string>
     <string name="change_current_pin">Mevcut pini değiştirin</string>
+    <string name="add_new_pass_desc">Şifrenizi bir simge ile eşleyebilir ve not ekleyebilirsiniz</string>
+    <string name="edit_pass">Şifre düzenleme</string>
+    <string name="edit_pass_desc">Şifrenizi düzenleyin ve kaydedin, silmek istiyorsanız liste ekranını ziyaret edin </string>
 </resources>

@@ -3,7 +3,7 @@ package com.sn.secretive.ui.password.detail
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.sn.secretive.R
-import com.sn.secretive.components.IconPicker
+import com.sn.secretive.components.imagepicker.ImagePicker
 import com.sn.secretive.data.model.PasswordItemModel
 import com.sn.secretive.databinding.FragmentPasswordDetailBinding
 import com.sn.secretive.extensions.click
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PasswordDetailFragment :
     BaseFragment<PasswordDetailViewModel, FragmentPasswordDetailBinding>() {
 
-    private lateinit var iconSelectedListener: IconPicker.ItemSelectedListener
+    private lateinit var iconSelectedListener: ImagePicker.ItemSelectedListener
     private lateinit var passwordItemModel: PasswordItemModel
 
     override fun getLayoutId(): Int = R.layout.fragment_password_detail
@@ -34,19 +34,11 @@ class PasswordDetailFragment :
         passwordItemModel = arguments?.get(PasswordActivity.PASSWORD_ITEM_KEY) as PasswordItemModel
         item = passwordItemModel
         model.setIconName(passwordItemModel.iconName)
-        iconPicker.setImage(passwordItemModel.iconName)
+        imagePicker.setSelectImage(passwordItemModel.iconName)
 
-        iconSelectedListener = object : IconPicker.ItemSelectedListener {
-            override fun onSelected(iconName: String) {
-                model.setIconName(iconName)
-                passwordItemModel.id?.let {
-                    model.setUpdateArgument(
-                        it,
-                        getBinding().dvTitle.value,
-                        getBinding().dvPassword.value,
-                        getBinding().dvNote.value
-                    )
-                }
+        iconSelectedListener = object : ImagePicker.ItemSelectedListener {
+            override fun onSelected(imageName: String) {
+                model.setIconName(imageName)
             }
         }
 
@@ -79,11 +71,11 @@ class PasswordDetailFragment :
 
     override fun onResume() {
         super.onResume()
-        getBinding().iconPicker.subscribe(iconSelectedListener)
+        getBinding().imagePicker.subscribe(iconSelectedListener)
     }
 
     override fun onPause() {
         super.onPause()
-        getBinding().iconPicker.unSubscribe()
+        getBinding().imagePicker.unSubscribe()
     }
 }
