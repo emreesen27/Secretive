@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.sn.secretive.BuildConfig
 import com.sn.secretive.databinding.FragmentAboutBinding
 import com.sn.secretive.extensions.click
 
@@ -18,6 +19,7 @@ class AboutFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.tvVersionName.text = BuildConfig.VERSION_NAME
         binding.tvLicenseUrl.click {
             val browserIntent = Intent(
                 Intent.ACTION_VIEW,

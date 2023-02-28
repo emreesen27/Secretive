@@ -47,6 +47,12 @@ class ImagePicker @JvmOverloads constructor(
 
     init {
         inflate(context, R.layout.image_picker_layout, this)
+
+        imageAdapter.onClick = { imageName ->
+            itemSelectedListener?.onSelected(imageName)
+            setSelectImage(imageName)
+        }
+
         picker = findViewById(R.id.picker)
         picker.apply {
             adapter = imageAdapter

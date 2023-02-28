@@ -7,6 +7,7 @@ import render.animations.Bounce
 import render.animations.Render
 
 inline fun <reified T : View> T.click(crossinline block: (T) -> Unit) = setOnClickListener {
+    it.apply { isEnabled = false; postDelayed({ isEnabled = true }, 200) }
     block(it as T)
 }
 
