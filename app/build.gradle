@@ -17,14 +17,14 @@ task installGitHook(type: Copy) {
 tasks.getByPath(':app:preBuild').dependsOn installGitHook
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.sn.secretive"
         minSdk 24
-        targetSdk 31
-        versionCode 4
-        versionName "1.0.3"
+        targetSdk 33
+        versionCode 5
+        versionName "1.0.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
