@@ -12,7 +12,7 @@ jobs:
    - name: Set up ruby env
      uses: ruby/setup-ruby@v1
      with:
-       ruby-version: 3.0.0
+       ruby-version: 3.0.3
        bundler-cache: true
  
    - name: Decode Service Account Key JSON File
