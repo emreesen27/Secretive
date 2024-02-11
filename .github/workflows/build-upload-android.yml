@@ -9,6 +9,8 @@ jobs:
   sign_and_publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Fix Git permissions
+        run: git init
       - name: Checkout repository
         uses: actions/checkout@v2
 
