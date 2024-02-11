@@ -38,17 +38,27 @@ jobs:
           name: Signed app APK
           path: ${{ steps.sign_app.outputs.signedReleaseFile }}
 
-      # Create a release in GitHub
+      - name: Run Gradle task to write version info to file
+        run: ./gradlew generateVersionTxt
+      
+      - name: Read version info from file
+        id: version_info
+        run: |
+          version_name=$(cat version.txt)
+          echo "::set-output name=version_name::$version_name"
+        shell: bash
+      
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: ${{ steps.version_info.outputs.version_name }}
+          release_name: Release ${{ steps.version_info.outputs.version_name }}
           body: |
-            This is the release APK for version v${{ github.run_number }}.
+            This is the release APK for version ${{ steps.version_info.outputs.version_name }}.
+
         # Upload the signed APK to the release
       - name: Upload Release Asset
         id: upload-release-asset
