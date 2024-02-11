@@ -1,72 +1,30 @@
-name: Android CI
+name: Build & Publish Debug APK
 
 on:
-  push:
-    branches:
-      - master
-    tags:
-      - 'v*.*.*'
-  pull_request:
-    branches:
-      - master
-
+ push:
+  branches:
+   - master
+   
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: gradle
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Set output
-        id: vars
-        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-      - name: Check output
-        env:
-          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
-        run: |
-          echo $RELEASE_VERSION
-          echo ${{ steps.vars.outputs.tag }}
-
-      - name: Bump version
-        uses: chkfung/android-version-actions@v1.2.1
-        with:
-          gradlePath: app/build.gradle # or app/build.gradle.kts
-          versionCode: ${{github.run_number}}
-          versionName: ${{env.RELEASE_VERSION}}
-
-      - name: Build Debug APK
-        run: ./gradlew assembleDebug
-
-      - name: Upload artifact Debug APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: apk
-          path: app/build/outputs/apk/debug/*.apk
-
-  release:
-    permissions:
-      contents: write
-    needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3 # Necessary to access local action
-      - name: github-action-release-apk
-        uses: gogoadl/github-action-release-apk@v1.0.0-alpha09
-        with:
-          asset-name: 'Secretive.apk'
-          github-token: ${{ secrets.ACTION_TOKEN }}
-          base64-keystore: ${{ secrets.KEYSTORE_FILE }}
-          key-file: ${{ secrets.KEY_FILE }}
-          keystore-password: ${{ secrets.KEYSTORE_PASSWORD }}
-          keystore-alias: ${{ secrets.KEY_ALIAS }}
-          key-password: ${{ secrets.KEY_PASSWORD}}
+    - uses: actions/checkout@v1
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+    - name: Generate version.txt for Hub release
+      run: ./gradlew generateVersionTxt
+    - name: Releasing using Hub
+      uses: valley-fordham/action-release-debugapk@master
+      env:
+       GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+       APP_FOLDER: app
+       RELEASE_TITLE: New Build
