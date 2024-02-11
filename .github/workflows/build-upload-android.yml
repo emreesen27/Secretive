@@ -3,12 +3,12 @@ name: Android CI
 on:
   push:
     branches:
-      - main
+      - master
     tags:
       - 'v*.*.*'
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -64,9 +64,9 @@ jobs:
         uses: gogoadl/github-action-release-apk@v1.0.0-alpha09
         with:
           asset-name: 'Secretive.apk'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          base64-keystore: ${{ secrets.APP_KEYSTORE_BASE64 }}
-          key-file: ${{ secrets.APP_KEY_FILE }}
-          keystore-password: ${{ secrets.APP_KEYSTORE_PASSWORD }}
-          keystore-alias: ${{ secrets.APP_KEYSTORE_ALIAS }}
-          key-password: ${{ secrets.APP_KEY_PASSWORD }}
+          github-token: ${{ secrets.ACTION_TOKEN }}
+          base64-keystore: ${{ secrets.KEYSTORE_FILE }}
+          key-file: ${{ secrets.KEY_FILE }}
+          keystore-password: ${{ secrets.KEYSTORE_PASSWORD }}
+          keystore-alias: ${{ secrets.KEY_ALIAS }}
+          key-password: ${{ secrets.KEY_PASSWORD}}
