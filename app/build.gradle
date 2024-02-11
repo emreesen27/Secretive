@@ -14,11 +14,6 @@ task installGitHook(type: Copy) {
     fileMode 0777
 }
 
-task generateVersionTxt {
-    doLast {
-        file("./version.txt").text = android.defaultConfig.versionName
-    }
-}
 
 tasks.getByPath(':app:preBuild').dependsOn installGitHook
 
