@@ -20,6 +20,12 @@ task generateVersionTxt {
     }
 }
 
+task printVersionName {
+    doLast {
+        println android.defaultConfig.versionName
+    }
+}
+
 tasks.getByPath(':app:preBuild').dependsOn installGitHook
 
 android {
@@ -40,8 +46,6 @@ android {
         dataBinding = true
     }
     
-    def versionName = android.defaultConfig.versionName
-
     buildTypes {
         release {
             minifyEnabled false
