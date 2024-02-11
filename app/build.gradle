@@ -39,7 +39,8 @@ android {
         viewBinding true
         dataBinding = true
     }
-
+    
+    def versionName = android.defaultConfig.versionName
 
     buildTypes {
         release {
@@ -55,8 +56,6 @@ android {
         jvmTarget = '1.8'
     }
 }
-
-def versionName = android.defaultConfig.versionName
 
 dependencies {
 
