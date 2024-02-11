@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Build APK with Gradle
+        run: ./gradlew assembleRelease
+
       # Sign the app APK
       - name: Sign app APK
         id: sign_app
