@@ -41,10 +41,10 @@ jobs:
       - name: Run Gradle task to write version info to file
         run: ./gradlew generateVersionTxt
       
-      - name: Read version info from file
+      - name: Read version info from Gradle
         id: version_info
         run: |
-          version_name=$(cat version.txt)
+          version_name=$(./gradlew properties | grep "versionName" | awk '{print $2}')
           echo "::set-output name=version_name::$version_name"
         shell: bash
       
