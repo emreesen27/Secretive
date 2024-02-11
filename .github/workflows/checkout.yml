@@ -1,0 +1,16 @@
+name: Fix Checkout Permissions
+
+on:
+  workflow_run:
+    workflows: ["build-upload-android.yml"]
+    types:
+      - completed
+
+jobs:
+  fix-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Fix checkout permissions
+        run: git config --global --add safe.directory $GITHUB_WORKSPACE
