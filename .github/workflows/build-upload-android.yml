@@ -54,6 +54,7 @@ jobs:
           release_name: Release ${{ steps.android_version.outputs.VERSION_NAME }}
           body: |
             This is the release APK for version ${{ steps.android_version.outputs.VERSION_NAME }}.
+            See here for changes in version -> [Changelog](https://github.com/username/repository/blob/main/CHANGELOG.md)
 
       # Upload the signed APK to the release
       - name: Upload Release Asset
